@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://vkeuh71f6ky5"]
+
+[ext_resource type="Script" path="res://Scripts/other/multiplayer_camera.gd" id="1_gywic"]
+[ext_resource type="PackedScene" uid="uid://8tap11m175wi" path="res://Scenes/settings_menu.tscn" id="2_6o3bt"]
+[ext_resource type="PackedScene" uid="uid://h45xpiy3k8b1" path="res://Scenes/ship_type_menu.tscn" id="3_2i4bw"]
+
+[node name="PlayerCamera" type="Camera2D"]
+zoom = Vector2(0.2, 0.2)
+script = ExtResource("1_gywic")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_6o3bt")]
+initial_position = 1
+visible = false
+
+[node name="shipTypeMenu" parent="." instance=ExtResource("3_2i4bw")]
+initial_position = 1
+visible = false

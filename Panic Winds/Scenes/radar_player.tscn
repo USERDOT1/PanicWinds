@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cja71dtwa7c3w"]
+
+[ext_resource type="Script" path="res://Scripts/other/radar_player.gd" id="1_djf04"]
+[ext_resource type="Texture2D" uid="uid://b3k02n6p1i1gv" path="res://Assets/Sprites/Other/radarDot.png" id="2_aioot"]
+
+[node name="radarPlayer" type="Node2D"]
+script = ExtResource("1_djf04")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aioot")

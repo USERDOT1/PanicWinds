@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3mtjtnqu7qml"]
+
+[ext_resource type="Script" path="res://Scripts/play_menu.gd" id="1_j2tts"]
+[ext_resource type="Texture2D" uid="uid://ct1x7114ch5xx" path="res://Assets/Sprites/Other/blueStars.jpg" id="2_gcuxu"]
+
+[sub_resource type="SystemFont" id="SystemFont_35q21"]
+font_names = PackedStringArray("Vollkorn")
+
+[sub_resource type="SystemFont" id="SystemFont_mlt8s"]
+font_names = PackedStringArray("Handlee")
+
+[node name="PlaySelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j2tts")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1344.0
+offset_top = -756.0
+offset_right = 1344.0
+offset_bottom = 756.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gcuxu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Seperator" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_35q21")
+theme_override_font_sizes/font_size = 150
+text = "Game Select"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Seperator2" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sandbox" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_mlt8s")
+theme_override_font_sizes/font_size = 40
+text = "Sandbox"
+
+[node name="Seperator4" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HostMatch" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_mlt8s")
+theme_override_font_sizes/font_size = 40
+text = "Host Match"
+
+[node name="Seperator5" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="JoinMatch" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_mlt8s")
+theme_override_font_sizes/font_size = 40
+text = "Join Match"
+
+[node name="Seperator3" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_mlt8s")
+theme_override_font_sizes/font_size = 40
+text = "Back"

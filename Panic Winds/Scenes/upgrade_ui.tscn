@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfkjka1sb6wlj"]
+
+[ext_resource type="Script" path="res://Scripts/other/Upgrade UI.gd" id="1_q88el"]
+[ext_resource type="Texture2D" uid="uid://bs1a21qn5q1gu" path="res://Assets/Sprites/Grey.jpeg" id="2_tikaa"]
+
+[node name="Upgrade UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q88el")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -155.0
+offset_top = -148.0
+offset_right = 164.0
+offset_bottom = 173.0
+texture = ExtResource("2_tikaa")
+expand_mode = 1
+
+[node name="Names" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -155.0
+offset_top = -147.0
+offset_right = -32.0
+offset_bottom = 173.0
+theme_override_constants/separation = 13
+
+[node name="0" type="Label" parent="Names"]
+layout_mode = 2
+text = "Variable One"
+
+[node name="1" type="Label" parent="Names"]
+layout_mode = 2
+text = "Variable Two"
+
+[node name="2" type="Label" parent="Names"]
+layout_mode = 2
+text = "Variable Three"
+
+[node name="3" type="Label" parent="Names"]
+layout_mode = 2
+text = "Variable Four"
+
+[node name="4" type="Label" parent="Names"]
+layout_mode = 2
+text = "Variable Five"
+
+[node name="Costs" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -148.0
+offset_right = 47.0
+offset_bottom = 172.0
+theme_override_constants/separation = 13
+
+[node name="0" type="Label" parent="Costs"]
+layout_mode = 2
+text = "Cost One
+"
+
+[node name="1" type="Label" parent="Costs"]
+layout_mode = 2
+text = "Cost Two"
+
+[node name="2" type="Label" parent="Costs"]
+layout_mode = 2
+text = "Cost Three"
+
+[node name="3" type="Label" parent="Costs"]
+layout_mode = 2
+text = "Cost Four"
+
+[node name="4" type="Label" parent="Costs"]
+layout_mode = 2
+text = "Cost Five"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = -147.0
+offset_right = 164.0
+offset_bottom = 173.0
+
+[node name="0" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Upgrade"
+
+[node name="1" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Upgrade"
+
+[node name="2" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Upgrade"
+
+[node name="3" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Upgrade"
+
+[node name="4" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Upgrade"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckcfkxtmwmwm4"
+path="res://.godot/imported/Oxygen is running low, refill may be necessary.wav-3f7b879f421fe1aad639bfff2a4aa414.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/ShipVoice/Oxygen is running low, refill may be necessary.wav"
+dest_files=["res://.godot/imported/Oxygen is running low, refill may be necessary.wav-3f7b879f421fe1aad639bfff2a4aa414.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

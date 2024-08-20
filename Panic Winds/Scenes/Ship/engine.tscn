@@ -1,0 +1,265 @@
+[gd_scene load_steps=29 format=3 uid="uid://dlc30jmixraio"]
+
+[ext_resource type="Texture2D" uid="uid://ehe6gmbcg0yg" path="res://Assets/Sprites/Addons/Engine.png" id="1_5nxcx"]
+[ext_resource type="Script" path="res://Scripts/Addons/engine.gd" id="1_rwl0e"]
+[ext_resource type="Texture2D" uid="uid://b4s0xtra1pesi" path="res://Assets/Inventory/2.png" id="2_578lk"]
+[ext_resource type="Script" path="res://Scripts/Addons/engineInputBindChanger.gd" id="3_4ix2l"]
+[ext_resource type="Texture2D" uid="uid://bsw5l58btt50u" path="res://Assets/Sprites/Addons/EngineActivated.png" id="3_jtsxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c04u"]
+atlas = ExtResource("2_578lk")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qjfm"]
+atlas = ExtResource("1_5nxcx")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcqjc"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s77l7"]
+load_path = "res://.godot/imported/Engine.png-e0e04300367e50ed42e1d8d7ed7bb27d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxpfo"]
+atlas = SubResource("CompressedTexture2D_s77l7")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvgfl"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2omi"]
+atlas = ExtResource("1_5nxcx")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54hpg"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vbd"]
+atlas = ExtResource("1_5nxcx")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvvg8"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfqtr"]
+atlas = SubResource("CompressedTexture2D_s77l7")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76iog"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr67g"]
+atlas = ExtResource("1_5nxcx")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnuwj"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prcfs"]
+atlas = ExtResource("1_5nxcx")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpdc0"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utbm5"]
+atlas = SubResource("CompressedTexture2D_s77l7")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t005a"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rap8"]
+atlas = SubResource("CompressedTexture2D_s77l7")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd0xk"]
+atlas = ExtResource("3_jtsxp")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdnfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c04u")
+}],
+"loop": true,
+"name": &"Blank",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qjfm")
+}],
+"loop": true,
+"name": &"EngineBindEight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcqjc")
+}],
+"loop": true,
+"name": &"EngineBindEightActive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxpfo")
+}],
+"loop": true,
+"name": &"EngineBindFive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvgfl")
+}],
+"loop": true,
+"name": &"EngineBindFiveActive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2omi")
+}],
+"loop": true,
+"name": &"EngineBindFour",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54hpg")
+}],
+"loop": true,
+"name": &"EngineBindFourActive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vbd")
+}],
+"loop": true,
+"name": &"EngineBindNine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvvg8")
+}],
+"loop": true,
+"name": &"EngineBindNineActive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfqtr")
+}],
+"loop": true,
+"name": &"EngineBindOne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76iog")
+}],
+"loop": true,
+"name": &"EngineBindOneActive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr67g")
+}],
+"loop": true,
+"name": &"EngineBindSeven",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnuwj")
+}],
+"loop": true,
+"name": &"EngineBindSevenActive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prcfs")
+}],
+"loop": true,
+"name": &"EngineBindSix",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpdc0")
+}],
+"loop": true,
+"name": &"EngineBindSixActive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utbm5")
+}],
+"loop": true,
+"name": &"EngineBindThree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t005a")
+}],
+"loop": true,
+"name": &"EngineBindThreeActive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rap8")
+}],
+"loop": true,
+"name": &"EngineBindTwo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd0xk")
+}],
+"loop": true,
+"name": &"EngineBindTwoActive",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_majba"]
+size = Vector2(640, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbsp0"]
+size = Vector2(640, 420)
+
+[node name="engine" type="StaticBody2D"]
+script = ExtResource("1_rwl0e")
+
+[node name="EngineSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tdnfl")
+animation = &"Blank"
+autoplay = "EngineBindOne"
+
+[node name="EngineCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_majba")
+
+[node name="EngineInteractArea" type="Area2D" parent="."]
+script = ExtResource("3_4ix2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EngineInteractArea"]
+position = Vector2(0, 110)
+shape = SubResource("RectangleShape2D_mbsp0")

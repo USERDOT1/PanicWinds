@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://vbo4sb0c0pdb"]
+
+[ext_resource type="Script" path="res://Scripts/other/main_menu.gd" id="1_qw7hi"]
+[ext_resource type="Texture2D" uid="uid://ce370ndac3n7n" path="res://Assets/Sprites/Other/cigarGalaxy.jpg" id="2_sdbjr"]
+[ext_resource type="FontFile" uid="uid://blk6f0n6gukum" path="res://Assets/Fonts/Gupter-Medium.ttf" id="3_yhkvx"]
+[ext_resource type="AudioStream" uid="uid://d75kq3glrqq3" path="res://Assets/Sound/SoundEffects/selectThing.wav" id="4_j8vv6"]
+[ext_resource type="AudioStream" uid="uid://dwng710ec8dfr" path="res://Assets/Sound/SoundEffects/dartBoard.wav" id="5_bxuio"]
+[ext_resource type="PackedScene" uid="uid://8tap11m175wi" path="res://Scenes/settings_menu.tscn" id="6_26c2l"]
+
+[sub_resource type="SystemFont" id="SystemFont_qgsds"]
+font_names = PackedStringArray("Handlee")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_qw7hi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1349.0
+offset_top = -756.0
+offset_right = 1339.0
+offset_bottom = 756.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sdbjr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_yhkvx")
+theme_override_font_sizes/font_size = 150
+text = "Panic Winds"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_yhkvx")
+theme_override_font_sizes/font_size = 60
+text = "A computer game"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_qgsds")
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="Seperator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_qgsds")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="Seperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_qgsds")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[node name="Select" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 335)
+stream = ExtResource("5_bxuio")
+
+[node name="MouseOver" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 335)
+stream = ExtResource("4_j8vv6")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("6_26c2l")]
+position = Vector2i(100, 120)
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]

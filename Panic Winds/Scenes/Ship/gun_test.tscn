@@ -1,0 +1,140 @@
+[gd_scene load_steps=16 format=3 uid="uid://j0suqf6bbr16"]
+
+[ext_resource type="Script" path="res://Scripts/other/gun_test.gd" id="1_ajsqj"]
+[ext_resource type="Texture2D" uid="uid://c6l740ddijrhx" path="res://Assets/Sprites/Addons/GunTest.png" id="2_ggmu3"]
+[ext_resource type="Script" path="res://Scripts/Addons/gunTestInputBindChanger.gd" id="3_gsei7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgcpq"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b61wx"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emt48"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trs2u"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aql11"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eirq"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg730"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pyd8"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtnbs"]
+atlas = ExtResource("2_ggmu3")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cj31o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgcpq")
+}],
+"loop": true,
+"name": &"GunBindEight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b61wx")
+}],
+"loop": true,
+"name": &"GunBindFive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emt48")
+}],
+"loop": true,
+"name": &"GunBindFour",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trs2u")
+}],
+"loop": true,
+"name": &"GunBindNine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aql11")
+}],
+"loop": true,
+"name": &"GunBindOne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eirq")
+}],
+"loop": true,
+"name": &"GunBindSeven",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg730")
+}],
+"loop": true,
+"name": &"GunBindSix",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pyd8")
+}],
+"loop": true,
+"name": &"GunBindThree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtnbs")
+}],
+"loop": true,
+"name": &"GunBindTwo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyvlo"]
+size = Vector2(640, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjwrb"]
+size = Vector2(640, 640.5)
+
+[node name="GunTest" type="StaticBody2D"]
+script = ExtResource("1_ajsqj")
+
+[node name="GunTestSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cj31o")
+animation = &"GunBindTwo"
+autoplay = "GunBindTwo"
+
+[node name="GunTestCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tyvlo")
+
+[node name="GunTestInteractArea" type="Area2D" parent="."]
+script = ExtResource("3_gsei7")
+
+[node name="GunTestInteractCollider" type="CollisionShape2D" parent="GunTestInteractArea"]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_hjwrb")

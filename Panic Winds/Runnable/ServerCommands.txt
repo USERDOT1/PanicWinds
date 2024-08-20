@@ -1,0 +1,3 @@
+D:
+cd 'Data\My Games\In Development\Panic Winds\Runnable\Panic Winds'
+.\PanicWinds.exe --server --headless

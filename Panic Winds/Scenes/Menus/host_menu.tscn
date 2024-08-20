@@ -1,0 +1,129 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvpj2bowi2iif"]
+
+[ext_resource type="Script" path="res://Scripts/other/host_menu.gd" id="1_mftwq"]
+[ext_resource type="Texture2D" uid="uid://ct1x7114ch5xx" path="res://Assets/Sprites/Other/blueStars.jpg" id="1_rwlhd"]
+[ext_resource type="AudioStream" uid="uid://dwng710ec8dfr" path="res://Assets/Sound/SoundEffects/dartBoard.wav" id="3_eaog2"]
+[ext_resource type="AudioStream" uid="uid://d75kq3glrqq3" path="res://Assets/Sound/SoundEffects/selectThing.wav" id="3_fce1v"]
+
+[sub_resource type="SystemFont" id="SystemFont_24wbw"]
+font_names = PackedStringArray("Vollkorn")
+
+[sub_resource type="SystemFont" id="SystemFont_nj5oe"]
+font_names = PackedStringArray("Vollkorn")
+
+[sub_resource type="SystemFont" id="SystemFont_v0g18"]
+font_names = PackedStringArray("Handlee")
+subpixel_positioning = 0
+
+[node name="HostMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mftwq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rwlhd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Seperator" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_24wbw")
+theme_override_font_sizes/font_size = 150
+text = "Host Settings"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = SubResource("SystemFont_nj5oe")
+theme_override_font_sizes/font_size = 60
+text = "Game Code:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Seperator2" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartGame" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_v0g18")
+theme_override_font_sizes/font_size = 40
+text = "Start Game"
+
+[node name="Seperator4" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CopyCode" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_v0g18")
+theme_override_font_sizes/font_size = 40
+text = "Copy Code"
+
+[node name="Seperator3" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AbortMatch" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_v0g18")
+theme_override_font_sizes/font_size = 40
+text = "Abort Match"
+
+[node name="Select" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 335)
+stream = ExtResource("3_eaog2")
+
+[node name="MouseOver" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 335)
+stream = ExtResource("3_fce1v")
+
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/StartGame" to="." method="_on_start_game_mouse_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/CopyCode" to="." method="_on_copy_code_mouse_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/AbortMatch" to="." method="_on_abort_match_mouse_entered"]

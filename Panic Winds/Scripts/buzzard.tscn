@@ -1,0 +1,157 @@
+[gd_scene load_steps=19 format=3 uid="uid://b51wo1q1fh7mi"]
+
+[ext_resource type="Script" path="res://Scripts/buzzard.gd" id="1_h1ejn"]
+[ext_resource type="Texture2D" uid="uid://dnhqfw1o07i0x" path="res://Assets/Inventory/10.png" id="2_ompep"]
+[ext_resource type="Texture2D" uid="uid://cyvkb52ycw3e2" path="res://Assets/Sprites/Addons/Buzzer.png" id="3_mrwmq"]
+[ext_resource type="Script" path="res://Scripts/Addons/gunTestInputBindChanger.gd" id="4_ts1wu"]
+[ext_resource type="AudioStream" uid="uid://h7tkbny3dstw" path="res://Assets/Sound/SoundEffects/blankRound.wav" id="5_mfr5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcqox"]
+atlas = ExtResource("2_ompep")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbud3"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eqnl"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tghcv"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcqmn"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72wn8"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fxjx"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkvpy"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5emsn"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1snbq"]
+atlas = ExtResource("3_mrwmq")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cj31o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcqox")
+}],
+"loop": true,
+"name": &"Blank",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbud3")
+}],
+"loop": true,
+"name": &"GunBindEight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eqnl")
+}],
+"loop": true,
+"name": &"GunBindFive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tghcv")
+}],
+"loop": true,
+"name": &"GunBindFour",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcqmn")
+}],
+"loop": true,
+"name": &"GunBindNine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72wn8")
+}],
+"loop": true,
+"name": &"GunBindOne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fxjx")
+}],
+"loop": true,
+"name": &"GunBindSeven",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkvpy")
+}],
+"loop": true,
+"name": &"GunBindSix",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5emsn")
+}],
+"loop": true,
+"name": &"GunBindThree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1snbq")
+}],
+"loop": true,
+"name": &"GunBindTwo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyvlo"]
+size = Vector2(640, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjwrb"]
+size = Vector2(640, 640.5)
+
+[node name="Buzzard" type="StaticBody2D"]
+script = ExtResource("1_h1ejn")
+
+[node name="GunTestSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cj31o")
+animation = &"GunBindSix"
+autoplay = "GunBindTwo"
+
+[node name="GunTestCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tyvlo")
+
+[node name="GunTestInteractArea" type="Area2D" parent="."]
+script = ExtResource("4_ts1wu")
+
+[node name="GunTestInteractCollider" type="CollisionShape2D" parent="GunTestInteractArea"]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_hjwrb")
+
+[node name="GunChamberOne" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mfr5b")

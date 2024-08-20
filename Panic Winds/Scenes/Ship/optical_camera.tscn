@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8p85dpab4ias"]
+
+[ext_resource type="Script" path="res://Scripts/other/optical_camera.gd" id="1_iigwn"]
+[ext_resource type="Texture2D" uid="uid://cgxsnjw1t3d4s" path="res://Assets/Sprites/Addons/opticalCamera.png" id="2_bhfhd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjii8"]
+atlas = ExtResource("2_bhfhd")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1nm2"]
+atlas = ExtResource("2_bhfhd")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_na5jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjii8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1nm2")
+}],
+"loop": true,
+"name": &"opticalCamera",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weal7"]
+size = Vector2(640, 640)
+
+[node name="OpticalCamera" type="StaticBody2D"]
+script = ExtResource("1_iigwn")
+
+[node name="TierOneBlockSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_na5jx")
+animation = &"opticalCamera"
+autoplay = "opticalCamera"
+
+[node name="TierOneBlockCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_weal7")

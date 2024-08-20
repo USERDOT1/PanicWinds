@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://wwyfc7x5gtte"]
+
+[ext_resource type="Script" path="res://Scripts/shipRotation.gd" id="1_r3kww"]
+[ext_resource type="PackedScene" uid="uid://dm8setorj34t6" path="res://Scenes/Ship/core.tscn" id="1_un5qm"]
+[ext_resource type="PackedScene" uid="uid://j0suqf6bbr16" path="res://Scenes/Ship/gun_test.tscn" id="2_enkmq"]
+[ext_resource type="PackedScene" uid="uid://dlc30jmixraio" path="res://Scenes/Ship/engine.tscn" id="4_own0c"]
+[ext_resource type="PackedScene" uid="uid://dwc3a86lb61kw" path="res://Scenes/teir_one_block.tscn" id="5_flpy6"]
+
+[node name="Ship" type="CharacterBody2D"]
+script = ExtResource("1_r3kww")
+
+[node name="Core" parent="." instance=ExtResource("1_un5qm")]
+
+[node name="GunTest" parent="." instance=ExtResource("2_enkmq")]
+position = Vector2(0, -1280)
+
+[node name="Engine2" parent="." instance=ExtResource("4_own0c")]
+position = Vector2(640, 640)
+rotation = 3.14159
+
+[node name="Engine3" parent="." instance=ExtResource("4_own0c")]
+position = Vector2(-640, 640)
+rotation = 3.14159
+
+[node name="Engine" parent="." instance=ExtResource("4_own0c")]
+position = Vector2(0, 1280)
+rotation = 3.14159
+
+[node name="TeirOneBlock" parent="." instance=ExtResource("5_flpy6")]
+position = Vector2(-640, 0)
+
+[node name="TeirOneBlock2" parent="." instance=ExtResource("5_flpy6")]
+position = Vector2(640, 0)
+
+[node name="TeirOneBlock3" parent="." instance=ExtResource("5_flpy6")]
+position = Vector2(0, 640)
+
+[node name="TeirOneBlock4" parent="." instance=ExtResource("5_flpy6")]
+position = Vector2(0, -640)

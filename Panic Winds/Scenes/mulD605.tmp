@@ -1,0 +1,211 @@
+[gd_scene load_steps=24 format=3 uid="uid://bdaiis0yl0ijb"]
+
+[ext_resource type="Script" path="res://Scripts/other/sceneManager.gd" id="1_b1tx3"]
+[ext_resource type="Texture2D" uid="uid://cm3s6mef8c108" path="res://Assets/Sprites/Other/StarBackground.png" id="1_ovhl3"]
+[ext_resource type="Script" path="res://Scripts/other/blockPlacingMultiplayer.gd" id="2_2ui5q"]
+[ext_resource type="Script" path="res://Scripts/other/BuildingUiMultiplayer.gd" id="2_ydk45"]
+[ext_resource type="Script" path="res://Scripts/other/sliderType.gd" id="3_kceib"]
+[ext_resource type="Texture2D" uid="uid://ehe6gmbcg0yg" path="res://Assets/Sprites/Addons/Engine.png" id="4_0uv72"]
+[ext_resource type="Texture2D" uid="uid://vdtqs1ilsuxd" path="res://Assets/Sprites/Addons/FuelGeneratorBindOne.png" id="5_rphg5"]
+[ext_resource type="Texture2D" uid="uid://c6l740ddijrhx" path="res://Assets/Sprites/Addons/GunTest.png" id="6_5thfl"]
+[ext_resource type="Texture2D" uid="uid://hf1qxia7mvaj" path="res://Assets/Sprites/Addons/RocketLauncher.png" id="7_nwdd7"]
+[ext_resource type="Texture2D" uid="uid://dc2ik48q78qny" path="res://Assets/Sprites/Blocks/TierOneBlock.png" id="8_sp4qn"]
+[ext_resource type="PackedScene" uid="uid://cal2rvvaghg2r" path="res://Temp/ghostblock.tscn" id="10_wxdfl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duhxo"]
+atlas = ExtResource("4_0uv72")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjb27"]
+atlas = ExtResource("5_rphg5")
+region = Rect2(0, 1920, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcdap"]
+atlas = ExtResource("6_5thfl")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx34c"]
+atlas = ExtResource("7_nwdd7")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ae72"]
+atlas = ExtResource("8_sp4qn")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7vmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duhxo")
+}],
+"loop": true,
+"name": &"Engine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjb27")
+}],
+"loop": true,
+"name": &"FuelGenerator",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcdap")
+}],
+"loop": true,
+"name": &"GunTest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx34c")
+}],
+"loop": true,
+"name": &"RocketLauncher",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ae72")
+}],
+"loop": true,
+"name": &"TierOneBlock",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwdg5"]
+atlas = ExtResource("4_0uv72")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye34p"]
+atlas = ExtResource("5_rphg5")
+region = Rect2(640, 1920, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbk17"]
+atlas = ExtResource("6_5thfl")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12nt6"]
+atlas = ExtResource("7_nwdd7")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v48yi"]
+atlas = ExtResource("8_sp4qn")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vae2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwdg5")
+}],
+"loop": true,
+"name": &"engine_test",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye34p")
+}],
+"loop": true,
+"name": &"fuel_generator",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbk17")
+}],
+"loop": true,
+"name": &"gun_test",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12nt6")
+}],
+"loop": true,
+"name": &"homing_rocket_launcher",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v48yi")
+}],
+"loop": true,
+"name": &"teir_one_block",
+"speed": 5.0
+}]
+
+[node name="MultiplayerGame" type="Node2D"]
+script = ExtResource("1_b1tx3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -8
+position = Vector2(159, 189)
+scale = Vector2(6.6885, 6.14855)
+texture = ExtResource("1_ovhl3")
+
+[node name="BuildingUi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ydk45")
+
+[node name="Button" type="Button" parent="BuildingUi"]
+layout_mode = 0
+offset_left = -6303.0
+offset_top = 3023.0
+offset_right = -5035.0
+offset_bottom = 3699.0
+text = " Get block"
+script = ExtResource("2_2ui5q")
+
+[node name="TypeSlider" type="HSlider" parent="BuildingUi"]
+layout_mode = 0
+offset_left = -5202.0
+offset_top = 1936.0
+offset_right = -2968.0
+offset_bottom = 2076.0
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+tick_count = 10
+script = ExtResource("3_kceib")
+
+[node name="Type" type="RichTextLabel" parent="BuildingUi"]
+layout_mode = 0
+offset_left = -5743.0
+offset_top = 1952.0
+offset_right = -5664.0
+offset_bottom = 1985.0
+scale = Vector2(6.43538, 3.50451)
+text = "Type"
+fit_content = true
+
+[node name="LabelSprite" type="AnimatedSprite2D" parent="BuildingUi"]
+position = Vector2(-6123, 1904)
+sprite_frames = SubResource("SpriteFrames_p7vmw")
+animation = &"Engine"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.1, 0.1)
+
+[node name="ghostblock" parent="." instance=ExtResource("10_wxdfl")]
+
+[node name="ghostBlockSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_3vae2")
+animation = &"homing_rocket_launcher"
+
+[node name="SpawnLocation" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnLocation" groups=["playerSpawnPoint"]]
+position = Vector2(0, 27370)
+
+[node name="1" type="Node2D" parent="SpawnLocation" groups=["playerSpawnPoint"]]
+position = Vector2(0, -27370)

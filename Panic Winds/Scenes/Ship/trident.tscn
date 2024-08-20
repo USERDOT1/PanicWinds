@@ -1,0 +1,156 @@
+[gd_scene load_steps=18 format=3 uid="uid://bnhvx5oauwstj"]
+
+[ext_resource type="Script" path="res://Scripts/Addons/gunTestActivation.gd" id="1_0qqyo"]
+[ext_resource type="Texture2D" uid="uid://cnfsfpc6wnf58" path="res://Assets/Inventory/9.png" id="2_g51e1"]
+[ext_resource type="Texture2D" uid="uid://q7delmpd0pcf" path="res://Assets/Sprites/Addons/Trident.png" id="2_rapal"]
+[ext_resource type="Script" path="res://Scripts/Addons/gunTestInputBindChanger.gd" id="3_0tsq7"]
+[ext_resource type="AudioStream" uid="uid://h7tkbny3dstw" path="res://Assets/Sound/SoundEffects/blankRound.wav" id="4_5g673"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl427"]
+atlas = ExtResource("2_g51e1")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdrrb"]
+atlas = ExtResource("2_rapal")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vpah"]
+atlas = ExtResource("2_rapal")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lovrr"]
+atlas = ExtResource("2_rapal")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft7n1"]
+atlas = ExtResource("2_rapal")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aowff"]
+atlas = ExtResource("2_rapal")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw83n"]
+atlas = ExtResource("2_rapal")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0t3l"]
+atlas = ExtResource("2_rapal")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3ds5"]
+atlas = ExtResource("2_rapal")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cj31o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl427")
+}],
+"loop": true,
+"name": &"Blank",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdrrb")
+}],
+"loop": true,
+"name": &"GunBindEight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vpah")
+}],
+"loop": true,
+"name": &"GunBindFive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lovrr")
+}],
+"loop": true,
+"name": &"GunBindFour",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft7n1")
+}],
+"loop": true,
+"name": &"GunBindNine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aowff")
+}],
+"loop": true,
+"name": &"GunBindOne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw83n")
+}],
+"loop": true,
+"name": &"GunBindSeven",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"GunBindSix",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0t3l")
+}],
+"loop": true,
+"name": &"GunBindThree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3ds5")
+}],
+"loop": true,
+"name": &"GunBindTwo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyvlo"]
+size = Vector2(640, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjwrb"]
+size = Vector2(640, 640.5)
+
+[node name="Trident" type="StaticBody2D"]
+script = ExtResource("1_0qqyo")
+
+[node name="GunTestSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cj31o")
+animation = &"GunBindTwo"
+autoplay = "GunBindTwo"
+
+[node name="GunTestCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tyvlo")
+
+[node name="GunTestInteractArea" type="Area2D" parent="."]
+script = ExtResource("3_0tsq7")
+
+[node name="GunTestInteractCollider" type="CollisionShape2D" parent="GunTestInteractArea"]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_hjwrb")
+
+[node name="GunChamberOne" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5g673")
+
+[node name="GunChamberTwo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5g673")
+
+[node name="GunChamberThree" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5g673")

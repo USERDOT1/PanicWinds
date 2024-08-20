@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qct6tgktxrha"
+path="res://.godot/imported/Energy is running low, recharging might be necessary.wav-95b31019ca9b751a66fe56ca79753c20.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/ShipVoice/Energy is running low, recharging might be necessary.wav"
+dest_files=["res://.godot/imported/Energy is running low, recharging might be necessary.wav-95b31019ca9b751a66fe56ca79753c20.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

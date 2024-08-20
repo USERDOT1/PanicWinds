@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cal2rvvaghg2r"]
+
+[ext_resource type="Texture2D" uid="uid://dc2ik48q78qny" path="res://Assets/Sprites/Blocks/TierOneBlock.png" id="1_2qc3p"]
+[ext_resource type="Script" path="res://Temp/ghostblock.gd" id="2_3vwq5"]
+
+[node name="ghostblock" type="Sprite2D"]
+texture = ExtResource("1_2qc3p")
+script = ExtResource("2_3vwq5")

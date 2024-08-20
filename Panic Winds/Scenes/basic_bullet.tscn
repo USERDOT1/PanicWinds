@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwxf4udjw64iq"]
+
+[ext_resource type="Texture2D" uid="uid://bsm0hw5rrh0u7" path="res://Assets/Sprites/Other/BasicBullet.png" id="1_fginy"]
+[ext_resource type="Script" path="res://Scripts/other/basic_bullet.gd" id="1_rqvdg"]
+[ext_resource type="AudioStream" uid="uid://cvqic4v7q4om6" path="res://Assets/Sound/SoundEffects/lightRoundShoot.wav" id="3_kbeem"]
+[ext_resource type="AudioStream" uid="uid://dd1i2vbh06c4p" path="res://Assets/Sound/SoundEffects/lightRoundHit.wav" id="4_5tps5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vjhs"]
+radius = 38.3275
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7cok"]
+radius = 38.4708
+
+[node name="BasicBullet" type="CharacterBody2D"]
+z_index = 2
+script = ExtResource("1_rqvdg")
+Speed = 10000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fginy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0vjhs")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_w7cok")
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kbeem")
+max_distance = 10000.0
+bus = &"SFX"
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5tps5")
+max_distance = 10000.0
+attenuation = 1.5
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="CollisionSound" to="." method="_on_collision_sound_finished"]

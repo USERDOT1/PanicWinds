@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://ierqh06jasc6"]
+
+[ext_resource type="Script" path="res://Scripts/other/gyroscope.gd" id="1_f8sjc"]
+[ext_resource type="Texture2D" uid="uid://vmc2ay2eslxn" path="res://Assets/Sprites/Addons/Gyroscope.png" id="2_rvidl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef777"]
+atlas = ExtResource("2_rvidl")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34q5k"]
+atlas = ExtResource("2_rvidl")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d51at"]
+atlas = ExtResource("2_rvidl")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_na5jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef777")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34q5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d51at")
+}],
+"loop": true,
+"name": &"gyroRotation",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weal7"]
+size = Vector2(640, 640)
+
+[node name="Gyroscope" type="StaticBody2D"]
+script = ExtResource("1_f8sjc")
+
+[node name="TierOneBlockSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_na5jx")
+animation = &"gyroRotation"
+autoplay = "gyroRotation"
+frame_progress = 0.730394
+
+[node name="TierOneBlockCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_weal7")

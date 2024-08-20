@@ -1,0 +1,211 @@
+[gd_scene load_steps=27 format=3 uid="uid://b8rp2or7qafmj"]
+
+[ext_resource type="Script" path="res://Scripts/other/sandbox.gd" id="1_mftwb"]
+[ext_resource type="PackedScene" uid="uid://wwyfc7x5gtte" path="res://Scenes/ship.tscn" id="2_d6chp"]
+[ext_resource type="PackedScene" uid="uid://cal2rvvaghg2r" path="res://Temp/ghostblock.tscn" id="3_q0a4y"]
+[ext_resource type="Script" path="res://Scripts/other/cameraRotation.gd" id="4_b70c2"]
+[ext_resource type="Script" path="res://Scripts/other/menuOpening.gd" id="5_slps4"]
+[ext_resource type="Script" path="res://Scripts/other/blockPlacing.gd" id="6_a8dk2"]
+[ext_resource type="Script" path="res://Scripts/other/sliderType.gd" id="7_rjjq0"]
+[ext_resource type="Texture2D" uid="uid://ehe6gmbcg0yg" path="res://Assets/Sprites/Addons/Engine.png" id="8_3krre"]
+[ext_resource type="Texture2D" uid="uid://vdtqs1ilsuxd" path="res://Assets/Sprites/Addons/FuelGeneratorBindOne.png" id="9_41gss"]
+[ext_resource type="Texture2D" uid="uid://c6l740ddijrhx" path="res://Assets/Sprites/Addons/GunTest.png" id="10_byiuh"]
+[ext_resource type="Texture2D" uid="uid://c5b4o2equfouh" path="res://Assets/Sprites/Addons/RocketLauncher.png" id="11_wmpwu"]
+[ext_resource type="Texture2D" uid="uid://dc2ik48q78qny" path="res://Assets/Sprites/Blocks/TierOneBlock.png" id="12_a6eyu"]
+[ext_resource type="Script" path="res://Scripts/other/statDisplaying.gd" id="13_0ifsl"]
+[ext_resource type="Texture2D" uid="uid://cm3s6mef8c108" path="res://Assets/Sprites/Other/StarBackground.png" id="14_wbe52"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duhxo"]
+atlas = ExtResource("8_3krre")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjb27"]
+atlas = ExtResource("9_41gss")
+region = Rect2(0, 1920, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcdap"]
+atlas = ExtResource("10_byiuh")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx34c"]
+atlas = ExtResource("11_wmpwu")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ae72"]
+atlas = ExtResource("12_a6eyu")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m48us"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duhxo")
+}],
+"loop": true,
+"name": &"Engine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjb27")
+}],
+"loop": true,
+"name": &"FuelGenerator",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcdap")
+}],
+"loop": true,
+"name": &"GunTest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx34c")
+}],
+"loop": true,
+"name": &"RocketLauncher",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ae72")
+}],
+"loop": true,
+"name": &"TierOneBlock",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwdg5"]
+atlas = ExtResource("8_3krre")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye34p"]
+atlas = ExtResource("9_41gss")
+region = Rect2(640, 1920, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbk17"]
+atlas = ExtResource("10_byiuh")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12nt6"]
+atlas = ExtResource("11_wmpwu")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v48yi"]
+atlas = ExtResource("12_a6eyu")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7lls1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwdg5")
+}],
+"loop": true,
+"name": &"engine_test",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye34p")
+}],
+"loop": true,
+"name": &"fuel_generator",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbk17")
+}],
+"loop": true,
+"name": &"gun_test",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12nt6")
+}],
+"loop": true,
+"name": &"homing_rocket_launcher",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v48yi")
+}],
+"loop": true,
+"name": &"teir_one_block",
+"speed": 5.0
+}]
+
+[node name="Sandbox" type="Node2D"]
+script = ExtResource("1_mftwb")
+
+[node name="ghostblock" parent="." instance=ExtResource("3_q0a4y")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(0.1, 0.1)
+script = ExtResource("4_b70c2")
+
+[node name="Ui" type="Node2D" parent="Camera2D"]
+visible = false
+script = ExtResource("5_slps4")
+
+[node name="Button" type="Button" parent="Camera2D/Ui"]
+offset_left = -6303.0
+offset_top = 3023.0
+offset_right = -5035.0
+offset_bottom = 3699.0
+text = " Get block"
+script = ExtResource("6_a8dk2")
+
+[node name="TypeSlider" type="HSlider" parent="Camera2D/Ui"]
+offset_left = -5202.0
+offset_top = 1936.0
+offset_right = -2968.0
+offset_bottom = 2076.0
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+tick_count = 10
+script = ExtResource("7_rjjq0")
+
+[node name="Type" type="RichTextLabel" parent="Camera2D/Ui"]
+offset_left = -5743.0
+offset_top = 1952.0
+offset_right = -5664.0
+offset_bottom = 1985.0
+scale = Vector2(6.43538, 3.50451)
+text = "Type"
+fit_content = true
+
+[node name="LabelSprite" type="AnimatedSprite2D" parent="Camera2D/Ui"]
+position = Vector2(-6123, 1904)
+sprite_frames = SubResource("SpriteFrames_m48us")
+animation = &"Engine"
+
+[node name="Resources" type="RichTextLabel" parent="Camera2D"]
+offset_left = 1929.0
+offset_top = 1581.0
+offset_right = 2128.0
+offset_bottom = 1731.0
+scale = Vector2(10, 10)
+text = "Among the beans"
+script = ExtResource("13_0ifsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -8
+position = Vector2(159, 189)
+scale = Vector2(6.6885, 6.14855)
+texture = ExtResource("14_wbe52")
+
+[node name="ghostBlockSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_7lls1")
+animation = &"homing_rocket_launcher"
+
+[node name="Ship" parent="." instance=ExtResource("2_d6chp")]

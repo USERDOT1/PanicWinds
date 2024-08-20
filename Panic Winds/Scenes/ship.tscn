@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://wwyfc7x5gtte"]
+
+[ext_resource type="Script" path="res://Scripts/other/shipRotation.gd" id="1_r3kww"]
+[ext_resource type="PackedScene" uid="uid://dm8setorj34t6" path="res://Scenes/Ship/core.tscn" id="1_un5qm"]
+[ext_resource type="AudioStream" uid="uid://df8smoyqcdpfp" path="res://Assets/Sound/ShipVoice/approachingStation.wav" id="3_ighii"]
+[ext_resource type="AudioStream" uid="uid://dcg2t5kuwsxpp" path="res://Assets/Sound/music/Shooting Star.wav" id="4_mpuui"]
+[ext_resource type="Script" path="res://Scenes/BarrierContainer.gd" id="5_d7qkx"]
+[ext_resource type="Texture2D" uid="uid://dmbfitmxe7ti7" path="res://Assets/Sprites/Other/Barrier.png" id="5_r5fil"]
+[ext_resource type="Script" path="res://Scripts/other/nameLabel.gd" id="7_3v55b"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3dcok"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:globalMousePositionC")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:globalPositionC")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:coreName")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_amrc2"]
+radius = 319.312
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvoy4"]
+atlas = ExtResource("5_r5fil")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t4pwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvoy4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Ship" type="CharacterBody2D"]
+rotation = 1.5708
+script = ExtResource("1_r3kww")
+
+[node name="Core" parent="." instance=ExtResource("1_un5qm")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_3dcok")
+
+[node name="ShipArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipArea"]
+shape = SubResource("CircleShape2D_amrc2")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="ShipVoice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ighii")
+bus = &"ShipVoice"
+area_mask = 3
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mpuui")
+volume_db = 9.37
+autoplay = true
+bus = &"Music"
+
+[node name="Barrier" type="StaticBody2D" parent="."]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("5_d7qkx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Barrier"]
+scale = Vector2(20.5, 20.5)
+sprite_frames = SubResource("SpriteFrames_t4pwl")
+animation = &"idle"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Barrier"]
+polygon = PackedVector2Array(-6560, 6.02375, -6558, 1019.02, -6355.99, 1845.02, -6151.99, 2459.02, -5943.99, 2871.02, -5743.99, 3271.02, -5529.99, 3485.02, -5334.99, 3895.02, -5120.99, 4095.02, -3281.98, 5753.01, -1849.98, 6345.01, -1014.98, 6552, 839.023, 6397, 1797.02, 6150.99, 2458.02, 5955.99, 2890.02, 5726.99, 3255.02, 5540.99, 3500.02, 5345.99, 3892.02, 5134.99, 4090.02, 4922.99, 4298.02, 4722.98, 4510.02, 4514.98, 4708.02, 4310.98, 4920.01, 4106.98, 5122.01, 3898.98, 5332.01, 3494.98, 5526.01, 3288.98, 5744.01, 2872.98, 5946.01, 2464.98, 6154.01, 1848.98, 6354, 1028.98, 6568, -1.02378, 6352, 0.977006, 6146, 1024.98, 5946.01, 1846.98, 5736.01, 2460.98, 5530.01, 2872.98, 5332.01, 3284.98, 5120.01, 3482.98, 4920.01, 3888.98, 4714.01, 4100.98, 4505.02, 4305.98, 4298.02, 4512.98, 4097.02, 4713.99, 3894.02, 4923.99, 3482.02, 5128.99, 3279.02, 5328.99, 2869.02, 5535.99, 2459.02, 5739.99, 1845.02, 5944.99, 1020.02, 6150, -1031.98, 6336, -1852.98, 6144.01, -2863.98, 5731.01, -3274.98, 5533.01, -3486.98, 5326.01, -3896.98, 4921.01, -4111.98, 4709.01, -4925.99, 3898.02, -5119.99, 3485.02, -5327.99, 3283.02, -5536.99, 2869.02, -5739.99, 2455.02, -5941.99, 1840.02, -6146, 1022.02, -6344, -3.97703)
+disabled = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Barrier"]
+rotation = 3.14159
+polygon = PackedVector2Array(-6560, 6.02375, -6558, 1019.02, -6355.99, 1845.02, -6151.99, 2459.02, -5943.99, 2871.02, -5743.99, 3271.02, -5529.99, 3485.02, -5334.99, 3895.02, -5120.99, 4095.02, -3281.98, 5753.01, -1849.98, 6345.01, -1014.98, 6552, 839.023, 6397, 1797.02, 6150.99, 2458.02, 5955.99, 2890.02, 5726.99, 3255.02, 5540.99, 3500.02, 5345.99, 3892.02, 5134.99, 4090.02, 4922.99, 4298.02, 4722.98, 4510.02, 4514.98, 4708.02, 4310.98, 4920.01, 4106.98, 5122.01, 3898.98, 5332.01, 3494.98, 5526.01, 3288.98, 5744.01, 2872.98, 5946.01, 2464.98, 6154.01, 1848.98, 6354, 1028.98, 6568, -1.02378, 6352, 0.977006, 6146, 1024.98, 5946.01, 1846.98, 5736.01, 2460.98, 5530.01, 2872.98, 5332.01, 3284.98, 5120.01, 3482.98, 4920.01, 3888.98, 4714.01, 4100.98, 4505.02, 4305.98, 4298.02, 4512.98, 4097.02, 4713.99, 3894.02, 4923.99, 3482.02, 5128.99, 3279.02, 5328.99, 2869.02, 5535.99, 2459.02, 5739.99, 1845.02, 5944.99, 1020.02, 6150, -1031.98, 6336, -1852.98, 6144.01, -2863.98, 5731.01, -3274.98, 5533.01, -3486.98, 5326.01, -3896.98, 4921.01, -4111.98, 4709.01, -4925.99, 3898.02, -5119.99, 3485.02, -5327.99, 3283.02, -5536.99, 2869.02, -5739.99, 2455.02, -5941.99, 1840.02, -6146, 1022.02, -6344, -3.97703)
+disabled = true
+
+[node name="nameLabel" type="Label" parent="."]
+offset_left = -1235.01
+offset_top = -3041.0
+offset_right = 4831.99
+offset_bottom = -2768.0
+rotation = 1.56594
+theme_override_font_sizes/font_size = 200
+text = "BigPAPI"
+horizontal_alignment = 1
+script = ExtResource("7_3v55b")

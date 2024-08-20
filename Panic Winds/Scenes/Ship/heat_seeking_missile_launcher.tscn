@@ -1,0 +1,164 @@
+[gd_scene load_steps=20 format=3 uid="uid://cugnkpcdbxpey"]
+
+[ext_resource type="Script" path="res://Scripts/other/heat_seeking_missile_launcher.gd" id="1_cpre5"]
+[ext_resource type="Texture2D" uid="uid://c5b4o2equfouh" path="res://Assets/Sprites/Addons/RocketLauncher.png" id="2_bdt6c"]
+[ext_resource type="Texture2D" uid="uid://o600drudpgp7" path="res://Assets/Inventory/14.png" id="2_jq1jo"]
+[ext_resource type="Script" path="res://Scripts/Addons/homingRocketLauncherInputBindChanger.gd" id="3_00j3k"]
+[ext_resource type="AudioStream" uid="uid://h7tkbny3dstw" path="res://Assets/Sound/SoundEffects/blankRound.wav" id="5_nov2l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3jxa"]
+atlas = ExtResource("2_jq1jo")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g02f"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omegf"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsm4h"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjuxs"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aelbf"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srmq7"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj1kb"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogvde"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quhjl"]
+atlas = ExtResource("2_bdt6c")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srcnc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3jxa")
+}],
+"loop": true,
+"name": &"Blank",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g02f")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindEight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omegf")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindFive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsm4h")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindFour",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjuxs")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindNine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aelbf")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindOne",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srmq7")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindSeven",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj1kb")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindSix",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogvde")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindThree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quhjl")
+}],
+"loop": true,
+"name": &"HomingRocketLauncherBindTwo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0r6h"]
+size = Vector2(640, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p1go"]
+size = Vector2(640, 640)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mefdn"]
+properties/0/path = NodePath("HomingRocketLauncherSprite:frame")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="HomingRocketLauncher" type="StaticBody2D"]
+script = ExtResource("1_cpre5")
+
+[node name="HomingRocketLauncherSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_srcnc")
+animation = &"HomingRocketLauncherBindThree"
+autoplay = "HomingRocketLauncherBindThree"
+
+[node name="HomingRocketLauncherCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f0r6h")
+
+[node name="HomingRocketLauncherInteractArea" type="Area2D" parent="."]
+script = ExtResource("3_00j3k")
+
+[node name="HomingRocketLauncherInteractCollider" type="CollisionShape2D" parent="HomingRocketLauncherInteractArea"]
+shape = SubResource("RectangleShape2D_3p1go")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_mefdn")
+
+[node name="NoMissiles" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nov2l")

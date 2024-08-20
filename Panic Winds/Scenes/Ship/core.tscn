@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://dm8setorj34t6"]
+
+[ext_resource type="Texture2D" uid="uid://ci03esw6xa4yx" path="res://Assets/Sprites/Blocks/Core Spritesheet.png" id="1_jskas"]
+
+[sub_resource type="GDScript" id="GDScript_4umpx"]
+script/source = "extends StaticBody2D
+var blockHealth = 250
+var blockArmor = 0
+@export var randomName: String
+func _ready():
+	pass
+
+func _process(_delta):
+	if get_parent().cloaked:
+		if $CoreSprite.modulate.a < 0:
+			$CoreSprite.modulate.a = 0
+		if $CoreSprite.modulate.a > 0.04:
+			$CoreSprite.modulate.a = 0.04
+		$CoreSprite.modulate.a += randf_range(-0.001,0.001)
+	else:
+		$CoreSprite.modulate.a = 1
+	name = $\"..\".coreName
+	if blockHealth <= 0:
+		GameManager.coreDestroy.rpc($\"..\".name, name)
+	if get_parent() == GlobalVars.currentPlayer:
+		GlobalVars.coreHealth = blockHealth
+		if blockHealth <= 0:
+			GlobalVars.coreHealth = 0
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk3iv"]
+atlas = ExtResource("1_jskas")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2vr2"]
+atlas = ExtResource("1_jskas")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdeoa"]
+atlas = ExtResource("1_jskas")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opyjv"]
+atlas = ExtResource("1_jskas")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev33l"]
+atlas = ExtResource("1_jskas")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbdny"]
+atlas = ExtResource("1_jskas")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkbe6"]
+atlas = ExtResource("1_jskas")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ln6up"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk3iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2vr2")
+}],
+"loop": true,
+"name": &"Critical",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdeoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opyjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev33l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbdny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkbe6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb6g1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v36bi"]
+size = Vector2(640, 640)
+
+[node name="Core" type="StaticBody2D"]
+script = SubResource("GDScript_4umpx")
+
+[node name="CoreSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ln6up")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CoreCollision" type="CollisionShape2D" parent="."]
+scale = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_nb6g1")
+
+[node name="CoreInteractArea" type="Area2D" parent="."]
+
+[node name="CoreInteractCollider" type="CollisionShape2D" parent="CoreInteractArea"]
+shape = SubResource("RectangleShape2D_v36bi")

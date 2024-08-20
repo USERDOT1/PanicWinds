@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://doqx876agtlo3"]
+
+[ext_resource type="Script" path="res://Scripts/other/heat_seeking_missile.gd" id="1_e5ir5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4gu3p"]
+load_path = "res://.godot/imported/Rocket.png-bc279b7c00e005e3437dc8a8d2d538db.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88to3"]
+size = Vector2(20, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hykl3"]
+radius = 38.4708
+
+[node name="heatSeekingMissile" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_e5ir5")
+Speed = 10000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_4gu3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_88to3")
+disabled = true
+
+[node name="heatSeekingMissileCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="heatSeekingMissileCollision"]
+shape = SubResource("CircleShape2D_hykl3")
+
+[node name="Detection" type="Area2D" parent="."]
+position = Vector2(0, -57.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Detection"]
+polygon = PackedVector2Array(0, 0, 2000, -3000, -2000, -3000)
+
+[connection signal="body_entered" from="heatSeekingMissileCollision" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Detection" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="Detection" to="." method="_on_detection_area_exited"]

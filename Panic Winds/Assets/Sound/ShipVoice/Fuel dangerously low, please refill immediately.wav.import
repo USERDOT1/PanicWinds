@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bar6c8xqajkyf"
+path="res://.godot/imported/Fuel dangerously low, please refill immediately.wav-9505120212bca07cd1f7239797184f17.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/ShipVoice/Fuel dangerously low, please refill immediately.wav"
+dest_files=["res://.godot/imported/Fuel dangerously low, please refill immediately.wav-9505120212bca07cd1f7239797184f17.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

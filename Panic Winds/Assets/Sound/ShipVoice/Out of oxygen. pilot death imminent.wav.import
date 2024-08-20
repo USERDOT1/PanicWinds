@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c4xapparu5c3p"
+path="res://.godot/imported/Out of oxygen. pilot death imminent.wav-3001a75ec0854acd979e764d98b9983c.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/ShipVoice/Out of oxygen. pilot death imminent.wav"
+dest_files=["res://.godot/imported/Out of oxygen. pilot death imminent.wav-3001a75ec0854acd979e764d98b9983c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

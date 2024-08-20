@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpdd5ttqbues3"]
+
+[ext_resource type="Script" path="res://Scripts/other/join_menu.gd" id="1_05m5b"]
+[ext_resource type="Texture2D" uid="uid://ct1x7114ch5xx" path="res://Assets/Sprites/Other/blueStars.jpg" id="1_kqvsy"]
+[ext_resource type="AudioStream" uid="uid://d75kq3glrqq3" path="res://Assets/Sound/SoundEffects/selectThing.wav" id="3_wppf5"]
+[ext_resource type="AudioStream" uid="uid://dwng710ec8dfr" path="res://Assets/Sound/SoundEffects/dartBoard.wav" id="4_yhkmp"]
+
+[sub_resource type="SystemFont" id="SystemFont_or4pw"]
+font_names = PackedStringArray("Vollkorn")
+
+[sub_resource type="SystemFont" id="SystemFont_arjaw"]
+font_names = PackedStringArray("Handlee")
+
+[sub_resource type="SystemFont" id="SystemFont_638rk"]
+font_names = PackedStringArray("Handlee")
+
+[node name="JoinMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_05m5b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kqvsy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Seperator" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = SubResource("SystemFont_or4pw")
+theme_override_font_sizes/font_size = 150
+text = "Join Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_arjaw")
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Enter Code Here"
+alignment = 1
+max_length = 8
+expand_to_text_length = true
+deselect_on_focus_loss_enabled = false
+select_all_on_focus = true
+
+[node name="Join Game" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_638rk")
+theme_override_font_sizes/font_size = 40
+text = "Start Game"
+
+[node name="Seperator3" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Back" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_638rk")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="Seperator2" type="Control" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Select" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 335)
+stream = ExtResource("4_yhkmp")
+
+[node name="MouseOver" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(579, 335)
+stream = ExtResource("3_wppf5")
+
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Join Game" to="." method="_on_join_game_mouse_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/Back" to="." method="_on_back_mouse_entered"]
