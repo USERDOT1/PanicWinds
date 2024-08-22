@@ -1,7 +1,6 @@
 extends StaticBody2D
 var blockHealth = 100
 var blockArmor = 0
-@onready var main = get_tree().get_root().get_node("Sandbox")
 @onready var projectile = load("res://Scenes/basic_bullet.tscn")
 var InputBind = "InputTwo"
 var spawnPosition : Vector2

@@ -1211,6 +1211,7 @@ animations = [{
 
 [sub_resource type="SystemFont" id="SystemFont_yt616"]
 font_names = PackedStringArray("Javanese Text")
+subpixel_positioning = 0
 
 [node name="UI" type="Control"]
 layout_mode = 3

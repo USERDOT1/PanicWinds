@@ -28,7 +28,7 @@ func _process(delta):
 	else:
 		$EngineSprite.modulate.a = 1
 	blockArmor = 0 + GlobalVars.shipArmor
-	if(Input.is_action_pressed("OnePressed") && InputBind == "InputOne" ||Input.is_action_pressed("TwoPressed") && InputBind == "InputTwo"||Input.is_action_pressed("ThreePressed") && InputBind == "InputThree"||Input.is_action_pressed("FourPressed") && InputBind == "InputFour"||Input.is_action_pressed("FivePressed") && InputBind == "InputFive"||Input.is_action_pressed("SixPressed")||Input.is_action_pressed("SevenPressed") && InputBind == "InputSeven"||Input.is_action_pressed("EightPressed") && InputBind == "InputEight"||Input.is_action_pressed("NinePressed") && InputBind == "InputNine"):
+	if(Input.is_action_pressed(GlobalVars.oneBind) && InputBind == "InputOne" || Input.is_action_pressed(GlobalVars.twoBind) && InputBind == "InputTwo"||Input.is_action_pressed(GlobalVars.threeBind) && InputBind == "InputThree"||Input.is_action_pressed(GlobalVars.fourBind) && InputBind == "InputFour"||Input.is_action_pressed(GlobalVars.fiveBind) && InputBind == "InputFive"||Input.is_action_pressed(GlobalVars.sixBind) && InputBind == "InputSix"||Input.is_action_pressed(GlobalVars.sevenBind) && InputBind == "InputSeven"||Input.is_action_pressed(GlobalVars.eightBind) && InputBind == "InputEight"||Input.is_action_pressed(GlobalVars.nineBind) && InputBind == "InputNine"):
 		heatScore = 60
 	if blockHealth <= 0:
 		GameManager.destroyObject.rpc(playerOwner, name, playerOwner.name, listCoords, false, weight)
@@ -60,11 +60,11 @@ func _process(delta):
 		if Input.is_action_pressed(GlobalVars.nineBind) && InputBind == "InputNine":
 			action(delta)
 			pass
-func action(delta):
+func action(passedInDelta):
 	if GlobalVars.Fuel > 0 && GlobalVars.currentPlayer.name == playerOwner.name:
 		var rotationDegrees = $"..".rotation_degrees + self.rotation_degrees
 		var rotationRadians = deg_to_rad(rotationDegrees)
 		var direction = Vector2(cos(rotationRadians),sin(rotationRadians))
-		GlobalVars.xVelocity -= (speed * direction.y * delta)
-		GlobalVars.yVelocity -= (speed * direction.x * delta)
-		GlobalVars.Fuel -= speed/200 * 1/fuelEfficiency * delta
+		GlobalVars.xVelocity -= (speed * direction.y * passedInDelta)
+		GlobalVars.yVelocity -= (speed * direction.x * passedInDelta)
+		GlobalVars.Fuel -= speed/200 * 1/fuelEfficiency * passedInDelta

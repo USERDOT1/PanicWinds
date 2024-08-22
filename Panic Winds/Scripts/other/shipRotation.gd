@@ -32,7 +32,6 @@ func my_global_position(vec) -> void:
 
 func _process(delta) -> void:
 	$nameLabel.z_index = 100
-	GameManager.setName.rpc(GlobalVars.currentPlayer.name, GlobalVars.playerName)
 	if blockHealth < 1:
 		$Barrier/AnimatedSprite2D.visible = false
 		$Barrier/CollisionPolygon2D.disabled = true

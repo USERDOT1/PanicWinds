@@ -29,7 +29,7 @@ func _process(delta):
 	else:
 		$EngineSprite.modulate.a = 1
 	blockArmor = 0 + GlobalVars.shipArmor
-	if(Input.is_action_pressed(GlobalVars.oneBind) && InputBind == "InputOne" ||Input.is_action_pressed(GlobalVars.twoBind) && InputBind == "InputTwo"||Input.is_action_pressed(GlobalVars.threeBind) && InputBind == "InputThree"||Input.is_action_pressed(GlobalVars.fourBind) && InputBind == "InputFour"||Input.is_action_pressed(GlobalVars.fiveBind) && InputBind == "InputFive"||Input.is_action_pressed(GlobalVars.sixBind)||Input.is_action_pressed(GlobalVars.sevenBind) && InputBind == "InputSeven"||Input.is_action_pressed(GlobalVars.eightBind) && InputBind == "InputEight"||Input.is_action_pressed(GlobalVars.nineBind) && InputBind == "InputNine"):
+	if(Input.is_action_pressed(GlobalVars.oneBind) && InputBind == "InputOne" || Input.is_action_pressed(GlobalVars.twoBind) && InputBind == "InputTwo"||Input.is_action_pressed(GlobalVars.threeBind) && InputBind == "InputThree"||Input.is_action_pressed(GlobalVars.fourBind) && InputBind == "InputFour"||Input.is_action_pressed(GlobalVars.fiveBind) && InputBind == "InputFive"||Input.is_action_pressed(GlobalVars.sixBind) && InputBind == "InputSix"||Input.is_action_pressed(GlobalVars.sevenBind) && InputBind == "InputSeven"||Input.is_action_pressed(GlobalVars.eightBind) && InputBind == "InputEight"||Input.is_action_pressed(GlobalVars.nineBind) && InputBind == "InputNine"):
 		if !looping:
 			$AudioStreamPlayer2D.play()
 			looping = true
@@ -67,14 +67,14 @@ func _process(delta):
 		if Input.is_action_pressed(GlobalVars.nineBind) && InputBind == "InputNine":
 			action(delta)
 			pass
-func action(delta):
+func action(passedInDelta):
 	if GlobalVars.Energy > 0 && GlobalVars.currentPlayer.name == playerOwner.name:
 		var rotationDegrees = $"..".rotation_degrees + self.rotation_degrees
 		var rotationRadians = deg_to_rad(rotationDegrees)
 		var direction = Vector2(cos(rotationRadians),sin(rotationRadians))
-		GlobalVars.xVelocity -= (speed * direction.y * delta)
-		GlobalVars.yVelocity -= (speed * direction.x * delta)
-		GlobalVars.Energy -= speed/200 * 1/fuelEfficiency * delta
+		GlobalVars.xVelocity -= (speed * direction.y * passedInDelta)
+		GlobalVars.yVelocity -= (speed * direction.x * passedInDelta)
+		GlobalVars.Energy -= speed/200 * 1/fuelEfficiency * passedInDelta
 
 
 func _on_audio_stream_player_2d_finished():

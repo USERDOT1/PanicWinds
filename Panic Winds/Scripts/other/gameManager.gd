@@ -1,6 +1,6 @@
 extends Node
 
-var players = {}
+var multiplayerPlayers = {}
 var instance
 @onready var teirOneBlock = load("res://Scenes/Ship/teir_one_block.tscn")
 @onready var engine = load("res://Scenes/Ship/engine.tscn")
@@ -28,15 +28,15 @@ var instance
 @rpc("any_peer")
 func sendPlayerInfo(name,id):
 	print("Called send player for id" + str(id) + " from " + str(multiplayer.get_unique_id()))
-	if !GameManager.players.has(id):
-		GameManager.players[id] = {
+	if !GameManager.multiplayerPlayers.has(id):
+		GameManager.multiplayerPlayers[id] = {
 			"name": name,
 			"id": id,
 			"score": 0
 		}
 	if multiplayer.is_server():
-		for i in GameManager.players:
-			sendPlayerInfo.rpc(GameManager.players[i].name, i)
+		for i in GameManager.multiplayerPlayers:
+			sendPlayerInfo.rpc(GameManager.multiplayerPlayers[i].name, i)
 
 @rpc("any_peer","call_local")
 func startGameInitiate() -> void:
@@ -95,11 +95,10 @@ func createBlock(playerid, placementType, lolposition, placementRotation, player
 	instance.spawnRotation = rad_to_deg(playerRotation + placementRotation)
 	instance.spawnName = randID
 	instance.listCoords = placementCoords
-	var players = get_node("/root/MultiplayerGame/Players")
 	var buildingPlayer = null
-	for i in players.get_child_count():
-		if players.get_child(i).name == playerid:
-			buildingPlayer = players.get_child(i)
+	for i in GlobalVars.PlayersNode.get_child_count():
+		if GlobalVars.PlayersNode.get_child(i).name == playerid:
+			buildingPlayer = GlobalVars.PlayersNode.get_child(i)
 	buildingPlayer.add_child(instance)
 	instance.playerOwner = buildingPlayer
 	if instance.playerOwner == GlobalVars.currentPlayer:
@@ -112,12 +111,11 @@ func createBlock(playerid, placementType, lolposition, placementRotation, player
 
 @rpc("any_peer","call_local", "reliable")
 func destroyObject(owner,blockid, playerid, listCoords, isBuildingBlock, weight):
-	var players = get_node("/root/MultiplayerGame/Players")
 	var playerOwner = null
-	for i in players.get_child_count():
+	for i in GlobalVars.PlayersNode.get_child_count():
 		#for every player
-		for j in players.get_child(i).get_child_count():
-			playerOwner = players.get_child(i)
+		for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
+			playerOwner = GlobalVars.PlayersNode.get_child(i)
 			if playerOwner.get_child(j).name == blockid:
 				#if it's id is equal to the destruction id
 				#destroy it
@@ -130,12 +128,11 @@ func destroyObject(owner,blockid, playerid, listCoords, isBuildingBlock, weight)
 
 @rpc("any_peer","call_local", "reliable")
 func coreDestroy(playerID, coreName):
-	var players = get_node("/root/MultiplayerGame/Players")
 	var playerOwner = null
-	for i in players.get_child_count():
+	for i in GlobalVars.PlayersNode.get_child_count():
 		#for every player
-		if players.get_child(i).name == playerID:
-			playerOwner = players.get_child(i)
+		if GlobalVars.PlayersNode.get_child(i).name == playerID:
+			playerOwner = GlobalVars.PlayersNode.get_child(i)
 			for j in playerOwner.get_child_count():
 				if playerOwner.get_child(j).name == coreName:
 					#if it's id is equal to the destruction id
@@ -161,13 +158,12 @@ func spawnProjectile(projectilePath, playerRotation, selfRotation, globalPositio
 	instance.zIndex = -10
 	instance.shipVelocity = Vector2(xVelocity* 1/GlobalVars.shipWeight * 0.5,yVelocity* 1/GlobalVars.shipWeight * 0.5)
 	instance.penetration = penetration
-	var players = get_node("/root/MultiplayerGame/Players")
 	var firingPlayer
-	for i in players.get_child_count():
+	for i in GlobalVars.PlayersNode.get_child_count():
 		#for every player
-		if players.get_child(i).name == playerID:
+		if GlobalVars.PlayersNode.get_child(i).name == playerID:
 			#find the firiring player could be not the main character
-			firingPlayer = players.get_child(i)
+			firingPlayer = GlobalVars.PlayersNode.get_child(i)
 	instance.playerOwner = firingPlayer
 	GlobalVars.get_node("/root/MultiplayerGame").add_child(instance)
 		
@@ -176,65 +172,47 @@ func spawnProjectile(projectilePath, playerRotation, selfRotation, globalPositio
 @rpc("any_peer","call_local", "reliable")
 func barrierSpawn(playerid):
 	print("SPAWN BARRIER")
-	var players = get_node("/root/MultiplayerGame/Players")
-	for i in players.get_child_count():
+	for i in GlobalVars.PlayersNode.get_child_count():
 		#for every player
-		if players.get_child(i).name == playerid:
-			for j in players.get_child(i).get_child_count():
-				if players.get_child(i).get_child(j).name == "Barrier":
-					for b in players.get_child(i).get_child(j).get_child_count():
-						if players.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D":
-							players.get_child(i).get_child(j).get_child(b).disabled = false
-						if players.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D2":
-							players.get_child(i).get_child(j).get_child(b).disabled = false
-						if players.get_child(i).get_child(j).get_child(b).name == "AnimatedSprite2D":
-							players.get_child(i).get_child(j).get_child(b).visible = true
+		if GlobalVars.PlayersNode.get_child(i).name == playerid:
+			for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
+				if GlobalVars.PlayersNode.get_child(i).get_child(j).name == "Barrier":
+					for b in GlobalVars.PlayersNode.get_child(i).get_child(j).get_child_count():
+						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D":
+							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = false
+						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D2":
+							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = false
+						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "AnimatedSprite2D":
+							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).visible = true
 
 
 @rpc("any_peer","call_local", "reliable")
 func barrierDespawn(playerid):
 	print("SPAWN BARRIER")
-	var players = get_node("/root/MultiplayerGame/Players")
-	for i in players.get_child_count():
+	for i in GlobalVars.PlayersNode.get_child_count():
 		#for every player
-		if players.get_child(i).name == playerid:
-			for j in players.get_child(i).get_child_count():
-				if players.get_child(i).get_child(j).name == "Barrier":
-					for b in players.get_child(i).get_child(j).get_child_count():
-						if players.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D":
-							players.get_child(i).get_child(j).get_child(b).disabled = true
-						if players.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D2":
-							players.get_child(i).get_child(j).get_child(b).disabled = true
-						if players.get_child(i).get_child(j).get_child(b).name == "AnimatedSprite2D":
-							players.get_child(i).get_child(j).get_child(b).visible = false
-
-@rpc("any_peer","call_local", "reliable")
-func setName(playerid, inputName):
-	var players = get_node("/root/MultiplayerGame/Players")
-	for i in players.get_child_count():
-		#for every player
-		if players.get_child(i).name == playerid:
-			for j in players.get_child(i).get_child_count():
-				if players.get_child(i).get_child(j).name == "nameLabel":
-					players.get_child(i).get_child(j).text = inputName
-				else:
-					pass
-		else:
-			pass
+		if GlobalVars.PlayersNode.get_child(i).name == playerid:
+			for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
+				if GlobalVars.PlayersNode.get_child(i).get_child(j).name == "Barrier":
+					for b in GlobalVars.PlayersNode.get_child(i).get_child(j).get_child_count():
+						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D":
+							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = true
+						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D2":
+							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = true
+						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "AnimatedSprite2D":
+							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).visible = false
 @rpc("any_peer","call_local","reliable")
 func cloak(playerCloakID):
-	var players = get_node("/root/MultiplayerGame/Players")
-	for i in players.get_child_count():
+	for i in GlobalVars.PlayersNode.get_child_count():
 		#for every player
-		if players.get_child(i).name == playerCloakID:
-			players.get_child(i).cloaked = true
+		if GlobalVars.PlayersNode.get_child(i).name == playerCloakID:
+			GlobalVars.PlayersNode.get_child(i).cloaked = true
 
 
 	
 @rpc("any_peer","call_local","reliable")
 func unCloak(playerCloakID):
-	var players = get_node("/root/MultiplayerGame/Players")
-	for i in players.get_child_count():
+	for i in GlobalVars.PlayersNode.get_child_count():
 		#for every player
-		if players.get_child(i).name == playerCloakID:
-			players.get_child(i).cloaked = false
+		if GlobalVars.PlayersNode.get_child(i).name == playerCloakID:
+			GlobalVars.PlayersNode.get_child(i).cloaked = false

@@ -34,10 +34,10 @@ func _ready():
 		index += 1
 		
 	index = 0
-	for i in GameManager.players:
+	for i in GameManager.multiplayerPlayers:
 		GlobalVars.currentPlayer = playerScene.instantiate()
 		
-		GlobalVars.currentPlayer.name = str(GameManager.players[i].id)
+		GlobalVars.currentPlayer.name = str(GameManager.multiplayerPlayers[i].id)
 		Camera = camera.instantiate()
 		GlobalVars.currentBuildingUi = buildingUi.instantiate()
 		GlobalVars.currentBuildingUi.name = "buildingUi"
@@ -53,7 +53,7 @@ func _ready():
 				print("Spawn Location for player " + str(index) + "for User ID: " + str(multiplayer.get_unique_id()) + ": " + str(spawn.global_position))
 				print("Current Location for player " +str(multiplayer.get_unique_id()) + ": " + str(GlobalVars.currentPlayer.global_position))
 				GlobalVars.currentPlayer.my_global_position(spawn.global_position)
-		if GameManager.players[i].id == multiplayer.get_unique_id():
+		if GameManager.multiplayerPlayers[i].id == multiplayer.get_unique_id():
 			Camera.make_current()
 			GlobalVars.currentCamera = Camera
 			

@@ -74,7 +74,7 @@ func _process(delta):
 				pass
 	else:
 		GlobalVars.radarEnabled = false
-func action(delta):
+func action(passedInDelta):
 	if GlobalVars.currentPlayer == get_parent():
 		print("ACTIOn")
 		if GlobalVars.radarEnabled == true:

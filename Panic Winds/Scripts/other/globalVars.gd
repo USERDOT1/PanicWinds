@@ -93,15 +93,15 @@ var InputSeven
 var InputEight
 var InputNine
 
-var oneBind:String
-var twoBind:String
-var threeBind:String
-var fourBind:String
-var fiveBind:String
-var sixBind:String
-var sevenBind:String
-var eightBind:String
-var nineBind:String
+var oneBind:String = "InputOne"
+var twoBind:String = "InputTwo"
+var threeBind:String = "InputThree"
+var fourBind:String = "InputFour"
+var fiveBind:String = "InputFive"
+var sixBind:String = "InputSix"
+var sevenBind:String = "InputSeven"
+var eightBind:String = "InputEight"
+var nineBind:String = "InputNine"
 
 
 var defaultOneBind:int

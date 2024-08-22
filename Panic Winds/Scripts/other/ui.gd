@@ -35,7 +35,7 @@ func _process(delta):
 	$Resources.text = ("Fuel: %"+str(round(100*(GlobalVars.Fuel/GlobalVars.maxFuel)))+" or "+str(round(GlobalVars.Fuel))+" Tons of fuel"+"\nEnergy: %"+str(round(100*(GlobalVars.Energy/GlobalVars.maxEnergy)))+" or "+str(round(GlobalVars.Energy))+" Gigawatts of energy"+"\nOxygen: %"+str(round(100*(GlobalVars.Oxygen/GlobalVars.maxOxygen)))+" or "+str(round(GlobalVars.Oxygen))+" Liters of Oxygen")
 	$Creds.text = "Creds: "+ str(GlobalVars.creds)
 	$Ammo.text = ("Light Rounds: "+str(GlobalVars.lightRounds)+"\nHeavy Rounds: "+str(GlobalVars.heavyRounds)+"\nMissiles: "+str(GlobalVars.missiles))
-	$Velocity.text = "Velocity: " + str(round(abs(GlobalVars.xVelocity)+abs(GlobalVars.yVelocity)))
+	$Velocity.text = "Velocity: " + str(round((abs(GlobalVars.xVelocity)+abs(GlobalVars.yVelocity))/7))
 	$"Core Health".text = "Core Health: "+ str(round(GlobalVars.coreHealth))
 	self.global_position = GlobalVars.currentPlayer.global_position
 
