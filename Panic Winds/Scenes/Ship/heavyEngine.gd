@@ -32,7 +32,7 @@ func _process(delta):
 		heatScore = 100
 	if blockHealth <= 0:
 		GameManager.destroyObject.rpc(playerOwner, name, playerOwner.name, listCoords, false, weight)
-	if GlobalVars.gamePaused == false:
+	if GlobalVars.gamePaused == false && GlobalVars.buildingEnabled:
 		if Input.is_action_pressed(GlobalVars.oneBind) && InputBind == "InputOne":
 			action(delta)
 			pass

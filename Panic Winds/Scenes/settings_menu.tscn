@@ -246,7 +246,7 @@ text = "Input One"
 [node name="InputOneOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 0
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -274,8 +274,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="InputTwo" type="Label" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
@@ -285,7 +295,7 @@ text = "Input Two"
 [node name="InputTwoOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 1
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -313,8 +323,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="InputThree" type="Label" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
@@ -324,7 +344,7 @@ text = "Input Three"
 [node name="InputThreeOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 2
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -352,8 +372,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="InputFour" type="Label" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
@@ -363,7 +393,7 @@ text = "Input Four"
 [node name="InputFourOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 3
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -391,8 +421,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="InputFive" type="Label" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
@@ -402,7 +442,7 @@ text = "Input Five"
 [node name="InputFiveOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 4
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -430,8 +470,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="InputSix" type="Label" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
@@ -441,7 +491,7 @@ text = "Input Six"
 [node name="InputSixOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 5
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -454,7 +504,7 @@ popup/item_3/id = 3
 popup/item_4/text = "5"
 popup/item_4/id = 4
 popup/item_5/text = "6"
-popup/item_5/id = 5
+popup/item_5/id = 0
 popup/item_6/text = "7"
 popup/item_6/id = 6
 popup/item_7/text = "8"
@@ -469,8 +519,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="InputSeven" type="Label" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
@@ -480,7 +540,7 @@ text = "Input Seven"
 [node name="InputSevenOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 6
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -508,8 +568,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="InputEight" type="Label" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
@@ -519,7 +589,7 @@ text = "Input Eight"
 [node name="InputEightOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 7
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -547,8 +617,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="InputNine" type="Label" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
@@ -558,7 +638,7 @@ text = "Input Nine"
 [node name="InputNineOptions" type="OptionButton" parent="SettingTabs/Input/MarginContainer/VideoSettings"]
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 14
+item_count = 19
 selected = 8
 popup/item_0/text = "1"
 popup/item_0/id = 0
@@ -586,8 +666,18 @@ popup/item_11/text = "Middle Click"
 popup/item_11/id = 11
 popup/item_12/text = "Space Bar"
 popup/item_12/id = 12
-popup/item_13/text = "Scroll Down"
+popup/item_13/text = "W"
 popup/item_13/id = 13
+popup/item_14/text = "A"
+popup/item_14/id = 14
+popup/item_15/text = "S"
+popup/item_15/id = 15
+popup/item_16/text = "D"
+popup/item_16/id = 16
+popup/item_17/text = "Q"
+popup/item_17/id = 17
+popup/item_18/text = "E"
+popup/item_18/id = 18
 
 [node name="Audio" type="TabBar" parent="SettingTabs"]
 visible = false

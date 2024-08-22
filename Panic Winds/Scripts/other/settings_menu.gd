@@ -56,264 +56,357 @@ func _process(delta):
 		GlobalVars.InputNine = $SettingTabs/Input/MarginContainer/VideoSettings/InputNineOptions.get_selected_id()
 		if GlobalVars.InputOne == 0:
 			GlobalVars.oneBind = "OnePressed"
-		if GlobalVars.InputOne == 1:
+		elif GlobalVars.InputOne == 1:
 			GlobalVars.oneBind = "TwoPressed"
-		if GlobalVars.InputOne == 2:
+		elif GlobalVars.InputOne == 2:
 			GlobalVars.oneBind = "ThreePressed"
-		if GlobalVars.InputOne == 3:
+		elif GlobalVars.InputOne == 3:
 			GlobalVars.oneBind = "FourPressed"
-		if GlobalVars.InputOne == 4:
+		elif GlobalVars.InputOne == 4:
 			GlobalVars.oneBind = "FivePressed"
-		if GlobalVars.InputOne == 5:
+		elif GlobalVars.InputOne == 5:
 			GlobalVars.oneBind = "SixPressed"
-		if GlobalVars.InputOne == 6:
+		elif GlobalVars.InputOne == 6:
 			GlobalVars.oneBind = "SevenPressed"
-		if GlobalVars.InputOne == 7:
+		elif GlobalVars.InputOne == 7:
 			GlobalVars.oneBind = "EightPressed"
-		if GlobalVars.InputOne == 8:
+		elif GlobalVars.InputOne == 8:
 			GlobalVars.oneBind = "NinePressed"
-		if GlobalVars.InputOne == 9:
+		elif GlobalVars.InputOne == 9:
 			GlobalVars.oneBind = "LeftClick"
-		if GlobalVars.InputOne == 10:
+		elif GlobalVars.InputOne == 10:
 			GlobalVars.oneBind = "RightClick"
-		if GlobalVars.InputOne == 11:
+		elif GlobalVars.InputOne == 11:
 			GlobalVars.oneBind = "MiddleClick"
-		if GlobalVars.InputOne == 12:
+		elif GlobalVars.InputOne == 12:
 			GlobalVars.oneBind = "SpacePressed"
-		if GlobalVars.InputOne == 13:
-			GlobalVars.oneBind = "ScrollDown"
+		elif GlobalVars.InputOne == 13:
+			GlobalVars.oneBind = "WPressed"
+		elif GlobalVars.InputOne == 14:
+			GlobalVars.oneBind = "APressed"
+		elif GlobalVars.InputOne == 15:
+			GlobalVars.oneBind = "SPressed"
+		elif GlobalVars.InputOne == 16:
+			GlobalVars.oneBind = "DPressed"
+		elif GlobalVars.InputOne == 17:
+			GlobalVars.oneBind = "QPressed"
+		elif GlobalVars.InputOne == 18:
+			GlobalVars.oneBind = "EPressed"
 		
 		if GlobalVars.InputTwo == 0:
 			GlobalVars.twoBind = "OnePressed"
-		if GlobalVars.InputTwo == 1:
+		elif GlobalVars.InputTwo == 1:
 			GlobalVars.twoBind = "TwoPressed"
-		if GlobalVars.InputTwo == 2:
+		elif GlobalVars.InputTwo == 2:
 			GlobalVars.twoBind = "ThreePressed"
-		if GlobalVars.InputTwo == 3:
+		elif GlobalVars.InputTwo == 3:
 			GlobalVars.twoBind = "FourPressed"
-		if GlobalVars.InputTwo == 4:
+		elif GlobalVars.InputTwo == 4:
 			GlobalVars.twoBind = "FivePressed"
-		if GlobalVars.InputTwo == 5:
+		elif GlobalVars.InputTwo == 5:
 			GlobalVars.twoBind = "SixPressed"
-		if GlobalVars.InputTwo == 6:
+		elif GlobalVars.InputTwo == 6:
 			GlobalVars.twoBind = "SevenPressed"
-		if GlobalVars.InputTwo == 7:
+		elif GlobalVars.InputTwo == 7:
 			GlobalVars.twoBind = "EightPressed"
-		if GlobalVars.InputTwo == 8:
+		elif GlobalVars.InputTwo == 8:
 			GlobalVars.twoBind = "NinePressed"
-		if GlobalVars.InputTwo == 9:
+		elif GlobalVars.InputTwo == 9:
 			GlobalVars.twoBind = "LeftClick"
-		if GlobalVars.InputTwo == 10:
+		elif GlobalVars.InputTwo == 10:
 			GlobalVars.twoBind = "RightClick"
-		if GlobalVars.InputTwo == 11:
+		elif GlobalVars.InputTwo == 11:
 			GlobalVars.twoBind = "MiddleClick"
-		if GlobalVars.InputTwo == 12:
+		elif GlobalVars.InputTwo == 12:
 			GlobalVars.twoBind = "SpacePressed"
-		if GlobalVars.InputTwo == 13:
-			GlobalVars.twoBind = "ScrollDown"
-		
+		elif GlobalVars.InputTwo == 13:
+			GlobalVars.twoBind = "WPressed"
+		elif GlobalVars.InputTwo == 14:
+			GlobalVars.twoBind = "APressed"
+		elif GlobalVars.InputTwo == 15:
+			GlobalVars.twoBind = "SPressed"
+		elif GlobalVars.InputTwo == 16:
+			GlobalVars.twoBind = "DPressed"
+		elif GlobalVars.InputTwo == 17:
+			GlobalVars.twoBind = "QPressed"
+		elif GlobalVars.InputTwo == 18:
+			GlobalVars.twoBind = "EPressed"
+			
 		if GlobalVars.InputThree == 0:
 			GlobalVars.threeBind = "OnePressed"
-		if GlobalVars.InputThree == 1:
+		elif GlobalVars.InputThree == 1:
 			GlobalVars.threeBind = "TwoPressed"
-		if GlobalVars.InputThree == 2:
+		elif GlobalVars.InputThree == 2:
 			GlobalVars.threeBind = "ThreePressed"
-		if GlobalVars.InputThree == 3:
+		elif GlobalVars.InputThree == 3:
 			GlobalVars.threeBind = "FourPressed"
-		if GlobalVars.InputThree == 4:
+		elif GlobalVars.InputThree == 4:
 			GlobalVars.threeBind = "FivePressed"
-		if GlobalVars.InputThree == 5:
+		elif GlobalVars.InputThree == 5:
 			GlobalVars.threeBind = "SixPressed"
-		if GlobalVars.InputThree == 6:
+		elif GlobalVars.InputThree == 6:
 			GlobalVars.threeBind = "SevenPressed"
-		if GlobalVars.InputThree == 7:
+		elif GlobalVars.InputThree == 7:
 			GlobalVars.threeBind = "EightPressed"
-		if GlobalVars.InputThree == 8:
+		elif GlobalVars.InputThree == 8:
 			GlobalVars.threeBind = "NinePressed"
-		if GlobalVars.InputThree == 9:
+		elif GlobalVars.InputThree == 9:
 			GlobalVars.threeBind = "LeftClick"
-		if GlobalVars.InputThree == 10:
+		elif GlobalVars.InputThree == 10:
 			GlobalVars.threeBind = "RightClick"
-		if GlobalVars.InputThree == 11:
+		elif GlobalVars.InputThree == 11:
 			GlobalVars.threeBind = "MiddleClick"
-		if GlobalVars.InputThree == 12:
+		elif GlobalVars.InputThree == 12:
 			GlobalVars.threeBind = "SpacePressed"
-		if GlobalVars.InputThree == 13:
-			GlobalVars.threeBind = "ScrollDown"
-		
+		elif GlobalVars.InputThree == 13:
+			GlobalVars.threeBind = "WPressed"
+		elif GlobalVars.InputThree == 14:
+			GlobalVars.threeBind = "APressed"
+		elif GlobalVars.InputThree == 15:
+			GlobalVars.threeBind = "SPressed"
+		elif GlobalVars.InputThree == 16:
+			GlobalVars.threeBind = "DPressed"
+		elif GlobalVars.InputThree == 17:
+			GlobalVars.threeBind = "QPressed"
+		elif GlobalVars.InputThree == 18:
+			GlobalVars.threeBind = "EPressed"
+			
+			
 		if GlobalVars.InputFour == 0:
 			GlobalVars.fourBind = "OnePressed"
-		if GlobalVars.InputFour == 1:
+		elif GlobalVars.InputFour == 1:
 			GlobalVars.fourBind = "TwoPressed"
-		if GlobalVars.InputFour == 2:
+		elif GlobalVars.InputFour == 2:
 			GlobalVars.fourBind = "ThreePressed"
-		if GlobalVars.InputFour == 3:
+		elif GlobalVars.InputFour == 3:
 			GlobalVars.fourBind = "FourPressed"
-		if GlobalVars.InputFour == 4:
+		elif GlobalVars.InputFour == 4:
 			GlobalVars.fourBind = "FivePressed"
-		if GlobalVars.InputFour == 5:
+		elif GlobalVars.InputFour == 5:
 			GlobalVars.fourBind = "SixPressed"
-		if GlobalVars.InputFour == 6:
+		elif GlobalVars.InputFour == 6:
 			GlobalVars.fourBind = "SevenPressed"
-		if GlobalVars.InputFour == 7:
+		elif GlobalVars.InputFour == 7:
 			GlobalVars.fourBind = "EightPressed"
-		if GlobalVars.InputFour == 8:
+		elif GlobalVars.InputFour == 8:
 			GlobalVars.fourBind = "NinePressed"
-		if GlobalVars.InputFour == 9:
+		elif GlobalVars.InputFour == 9:
 			GlobalVars.fourBind = "LeftClick"
-		if GlobalVars.InputFour == 10:
+		elif GlobalVars.InputFour == 10:
 			GlobalVars.fourBind = "RightClick"
-		if GlobalVars.InputFour == 11:
+		elif GlobalVars.InputFour == 11:
 			GlobalVars.fourBind = "MiddleClick"
-		if GlobalVars.InputFour == 12:
+		elif GlobalVars.InputFour == 12:
 			GlobalVars.fourBind = "SpacePressed"
-		if GlobalVars.InputFour == 13:
-			GlobalVars.fourBind = "ScrollDown"
-			
+		elif GlobalVars.InputFour == 13:
+			GlobalVars.fourBind = "WPressed"
+		elif GlobalVars.InputFour == 14:
+			GlobalVars.fourBind = "APressed"
+		elif GlobalVars.InputFour == 15:
+			GlobalVars.fourBind = "SPressed"
+		elif GlobalVars.InputFour == 16:
+			GlobalVars.fourBind = "DPressed"
+		elif GlobalVars.InputFour == 17:
+			GlobalVars.twoBind = "QPressed"
+		elif GlobalVars.InputFour == 18:
+			GlobalVars.fourBind = "EPressed"
+		
 		if GlobalVars.InputFive == 0:
 			GlobalVars.fiveBind = "OnePressed"
-		if GlobalVars.InputFive == 1:
+		elif GlobalVars.InputFive == 1:
 			GlobalVars.fiveBind = "TwoPressed"
-		if GlobalVars.InputFive == 2:
+		elif GlobalVars.InputFive == 2:
 			GlobalVars.fiveBind = "ThreePressed"
-		if GlobalVars.InputFive == 3:
+		elif GlobalVars.InputFive == 3:
 			GlobalVars.fiveBind = "FourPressed"
-		if GlobalVars.InputFive == 4:
+		elif GlobalVars.InputFive == 4:
 			GlobalVars.fiveBind = "FivePressed"
-		if GlobalVars.InputFive == 5:
+		elif GlobalVars.InputFive == 5:
 			GlobalVars.fiveBind = "SixPressed"
-		if GlobalVars.InputFive == 6:
+		elif GlobalVars.InputFive == 6:
 			GlobalVars.fiveBind = "SevenPressed"
-		if GlobalVars.InputFive == 7:
+		elif GlobalVars.InputFive == 7:
 			GlobalVars.fiveBind = "EightPressed"
-		if GlobalVars.InputFive == 8:
+		elif GlobalVars.InputFive == 8:
 			GlobalVars.fiveBind = "NinePressed"
-		if GlobalVars.InputFive == 9:
+		elif GlobalVars.InputFive == 9:
 			GlobalVars.fiveBind = "LeftClick"
-		if GlobalVars.InputFive == 10:
+		elif GlobalVars.InputFive == 10:
 			GlobalVars.fiveBind = "RightClick"
-		if GlobalVars.InputFive == 11:
+		elif GlobalVars.InputFive == 11:
 			GlobalVars.fiveBind = "MiddleClick"
-		if GlobalVars.InputFive == 12:
+		elif GlobalVars.InputFive == 12:
 			GlobalVars.fiveBind = "SpacePressed"
-		if GlobalVars.InputFive == 13:
-			GlobalVars.fiveBind = "ScrollDown"
+		elif GlobalVars.InputFive == 13:
+			GlobalVars.fiveBind = "WPressed"
+		elif GlobalVars.InputFive == 14:
+			GlobalVars.fiveBind = "APressed"
+		elif GlobalVars.InputFive == 15:
+			GlobalVars.fiveBind = "SPressed"
+		elif GlobalVars.InputFive == 16:
+			GlobalVars.fiveBind = "DPressed"
+		elif GlobalVars.InputFive == 17:
+			GlobalVars.InputFive = "QPressed"
+		elif GlobalVars.InputFive == 18:
+			GlobalVars.InputFive = "EPressed"
 			
 		if GlobalVars.InputSix == 0:
 			GlobalVars.sixBind = "OnePressed"
-		if GlobalVars.InputSix == 1:
+		elif GlobalVars.InputSix == 1:
 			GlobalVars.sixBind = "TwoPressed"
-		if GlobalVars.InputSix == 2:
+		elif GlobalVars.InputSix == 2:
 			GlobalVars.sixBind = "ThreePressed"
-		if GlobalVars.InputSix == 3:
+		elif GlobalVars.InputSix == 3:
 			GlobalVars.sixBind = "FourPressed"
-		if GlobalVars.InputSix == 4:
+		elif GlobalVars.InputSix == 4:
 			GlobalVars.sixBind = "FivePressed"
-		if GlobalVars.InputSix == 5:
+		elif GlobalVars.InputSix == 5:
 			GlobalVars.sixBind = "SixPressed"
-		if GlobalVars.InputSix == 6:
+		elif GlobalVars.InputSix == 6:
 			GlobalVars.sixBind = "SevenPressed"
-		if GlobalVars.InputSix == 7:
+		elif GlobalVars.InputSix == 7:
 			GlobalVars.sixBind = "EightPressed"
-		if GlobalVars.InputSix == 8:
+		elif GlobalVars.InputSix == 8:
 			GlobalVars.sixBind = "NinePressed"
-		if GlobalVars.InputSix == 9:
+		elif GlobalVars.InputSix == 9:
 			GlobalVars.sixBind = "LeftClick"
-		if GlobalVars.InputSix == 10:
+		elif GlobalVars.InputSix == 10:
 			GlobalVars.sixBind = "RightClick"
-		if GlobalVars.InputSix == 11:
+		elif GlobalVars.InputSix == 11:
 			GlobalVars.sixBind = "MiddleClick"
-		if GlobalVars.InputSix == 12:
+		elif GlobalVars.InputSix == 12:
 			GlobalVars.sixBind = "SpacePressed"
-		if GlobalVars.InputSix == 13:
-			GlobalVars.sixBind = "ScrollDown"
+		elif GlobalVars.InputSix == 13:
+			GlobalVars.sixBind = "WPressed"
+		elif GlobalVars.InputSix == 14:
+			GlobalVars.sixBind = "APressed"
+		elif GlobalVars.InputSix == 15:
+			GlobalVars.sixBind = "SPressed"
+		elif GlobalVars.InputSix == 16:
+			GlobalVars.sixBind = "DPressed"
+		elif GlobalVars.InputSix == 17:
+			GlobalVars.twoBind = "QPressed"
+		elif GlobalVars.InputSix == 18:
+			GlobalVars.twoBind = "EPressed"
+			
 			
 		if GlobalVars.InputSeven == 0:
 			GlobalVars.sevenBind = "OnePressed"
-		if GlobalVars.InputSeven == 1:
+		elif GlobalVars.InputSeven == 1:
 			GlobalVars.sevenBind = "TwoPressed"
-		if GlobalVars.InputSeven == 2:
+		elif GlobalVars.InputSeven == 2:
 			GlobalVars.sevenBind = "ThreePressed"
-		if GlobalVars.InputSeven == 3:
+		elif GlobalVars.InputSeven == 3:
 			GlobalVars.sevenBind = "FourPressed"
-		if GlobalVars.InputSeven == 4:
+		elif GlobalVars.InputSeven == 4:
 			GlobalVars.sevenBind = "FivePressed"
-		if GlobalVars.InputSeven == 5:
+		elif GlobalVars.InputSeven == 5:
 			GlobalVars.sevenBind = "SixPressed"
-		if GlobalVars.InputSeven == 6:
+		elif GlobalVars.InputSeven == 6:
 			GlobalVars.sevenBind = "SevenPressed"
-		if GlobalVars.InputSeven == 7:
+		elif GlobalVars.InputSeven == 7:
 			GlobalVars.sevenBind = "EightPressed"
-		if GlobalVars.InputSeven == 8:
+		elif GlobalVars.InputSeven == 8:
 			GlobalVars.sevenBind = "NinePressed"
-		if GlobalVars.InputSeven == 9:
+		elif GlobalVars.InputSeven == 9:
 			GlobalVars.sevenBind = "LeftClick"
-		if GlobalVars.InputSeven == 10:
+		elif GlobalVars.InputSeven == 10:
 			GlobalVars.sevenBind = "RightClick"
-		if GlobalVars.InputSeven == 11:
+		elif GlobalVars.InputSeven == 11:
 			GlobalVars.sevenBind = "MiddleClick"
-		if GlobalVars.InputSeven == 12:
+		elif GlobalVars.InputSeven == 12:
 			GlobalVars.sevenBind = "SpacePressed"
-		if GlobalVars.InputSeven == 13:
-			GlobalVars.sevenBind = "ScrollDown"
+		elif GlobalVars.InputSeven == 13:
+			GlobalVars.sevenBind = "WPressed"
+		elif GlobalVars.InputSeven == 14:
+			GlobalVars.sevenBind = "APressed"
+		elif GlobalVars.InputSeven == 15:
+			GlobalVars.sevenBind = "SPressed"
+		elif GlobalVars.InputSeven == 16:
+			GlobalVars.sevenBind = "DPressed"
+		elif GlobalVars.InputSeven == 17:
+			GlobalVars.sevenBind = "QPressed"
+		elif GlobalVars.InputSeven == 18:
+			GlobalVars.sevenBind = "EPressed"
+			
 			
 		if GlobalVars.InputEight == 0:
 			GlobalVars.eightBind = "OnePressed"
-		if GlobalVars.InputEight == 1:
+		elif GlobalVars.InputEight == 1:
 			GlobalVars.eightBind = "TwoPressed"
-		if GlobalVars.InputEight == 2:
+		elif GlobalVars.InputEight == 2:
 			GlobalVars.eightBind = "ThreePressed"
-		if GlobalVars.InputEight == 3:
+		elif GlobalVars.InputEight == 3:
 			GlobalVars.eightBind = "FourPressed"
-		if GlobalVars.InputEight == 4:
+		elif GlobalVars.InputEight == 4:
 			GlobalVars.eightBind = "FivePressed"
-		if GlobalVars.InputEight == 5:
+		elif GlobalVars.InputEight == 5:
 			GlobalVars.eightBind = "SixPressed"
-		if GlobalVars.InputEight == 6:
+		elif GlobalVars.InputEight == 6:
 			GlobalVars.eightBind = "SevenPressed"
-		if GlobalVars.InputEight == 7:
+		elif GlobalVars.InputEight == 7:
 			GlobalVars.eightBind = "EightPressed"
-		if GlobalVars.InputEight == 8:
+		elif GlobalVars.InputEight == 8:
 			GlobalVars.eightBind = "NinePressed"
-		if GlobalVars.InputEight == 9:
+		elif GlobalVars.InputEight == 9:
 			GlobalVars.eightBind = "LeftClick"
-		if GlobalVars.InputEight == 10:
+		elif GlobalVars.InputEight == 10:
 			GlobalVars.eightBind = "RightClick"
-		if GlobalVars.InputEight == 11:
+		elif GlobalVars.InputEight == 11:
 			GlobalVars.eightBind = "MiddleClick"
-		if GlobalVars.InputEight == 12:
+		elif GlobalVars.InputEight == 12:
 			GlobalVars.eightBind = "SpacePressed"
-		if GlobalVars.InputEight == 13:
-			GlobalVars.eightBind = "ScrollDown"
+		elif GlobalVars.InputEight == 13:
+			GlobalVars.eightBind = "WPressed"
+		elif GlobalVars.InputEight == 14:
+			GlobalVars.eightBind = "APressed"
+		elif GlobalVars.InputEight == 15:
+			GlobalVars.eightBind = "SPressed"
+		elif GlobalVars.InputEight == 16:
+			GlobalVars.eightBind = "DPressed"
+		elif GlobalVars.InputEight == 17:
+			GlobalVars.eightBind = "QPressed"
+		elif GlobalVars.InputEight == 18:
+			GlobalVars.eightBind = "EPressed"
 			
 		if GlobalVars.InputNine == 0:
 			GlobalVars.nineBind = "OnePressed"
-		if GlobalVars.InputNine == 1:
+		elif GlobalVars.InputNine == 1:
 			GlobalVars.nineBind = "TwoPressed"
-		if GlobalVars.InputNine == 2:
+		elif GlobalVars.InputNine == 2:
 			GlobalVars.nineBind = "ThreePressed"
-		if GlobalVars.InputNine == 3:
+		elif GlobalVars.InputNine == 3:
 			GlobalVars.nineBind = "FourPressed"
-		if GlobalVars.InputNine == 4:
+		elif GlobalVars.InputNine == 4:
 			GlobalVars.nineBind = "FivePressed"
-		if GlobalVars.InputNine == 5:
+		elif GlobalVars.InputNine == 5:
 			GlobalVars.nineBind = "SixPressed"
-		if GlobalVars.InputNine == 6:
+		elif GlobalVars.InputNine == 6:
 			GlobalVars.nineBind = "SevenPressed"
-		if GlobalVars.InputNine == 7:
+		elif GlobalVars.InputNine == 7:
 			GlobalVars.nineBind = "EightPressed"
-		if GlobalVars.InputNine == 8:
+		elif GlobalVars.InputNine == 8:
 			GlobalVars.nineBind = "NinePressed"
-		if GlobalVars.InputNine == 9:
+		elif GlobalVars.InputNine == 9:
 			GlobalVars.nineBind = "LeftClick"
-		if GlobalVars.InputNine == 10:
+		elif GlobalVars.InputNine == 10:
 			GlobalVars.nineBind = "RightClick"
-		if GlobalVars.InputNine == 11:
+		elif GlobalVars.InputNine == 11:
 			GlobalVars.nineBind = "MiddleClick"
-		if GlobalVars.InputNine == 12:
+		elif GlobalVars.InputNine == 12:
 			GlobalVars.nineBind = "SpacePressed"
-		if GlobalVars.InputNine == 13:
-			GlobalVars.nineBind = "ScrollDown"
+		elif GlobalVars.InputNine == 13:
+			GlobalVars.nineBind = "WPressed"
+		elif GlobalVars.InputNine == 14:
+			GlobalVars.nineBind = "APressed"
+		elif GlobalVars.InputNine == 15:
+			GlobalVars.nineBind = "SPressed"
+		elif GlobalVars.InputNine == 16:
+			GlobalVars.nineBind = "DPressed"
+		elif GlobalVars.InputNine == 17:
+			GlobalVars.nineBind = "QPressed"
+		elif GlobalVars.InputNine == 18:
+			GlobalVars.nineBind = "EPressed"
 		
 
 

@@ -39,7 +39,7 @@ func _process(delta):
 	if blockHealth <= 0:
 		GameManager.destroyObject.rpc(playerOwner, name, playerOwner.name, listCoords, false, weight)
 		GlobalVars.placedBlocks.erase(listCoords)
-	if GlobalVars.gamePaused == false:
+	if GlobalVars.gamePaused == false && GlobalVars.buildingEnabled:
 		if Input.is_action_pressed(GlobalVars.oneBind) && InputBind == "InputOne":
 			action(delta)
 			pass
