@@ -44,14 +44,14 @@ var maxOxygen: float = 60
 #Multiplayer
 var gameCode = "among"
 var peer
-var adress = "172.88.97.9" # subject to change in the future :|
+var adress = "172.88.97.9" # subject to change in the future :|  "192."
 var port = 8910 # subject to change in the future :|
 
 #Ship
 var xVelocity = 0
 var yVelocity = 0
 var currentPlayer
-var playerName = ""
+var playerName = "192.168.86.82"
 var shipWeight = 5
 var PlayersNode
 var inStation = true

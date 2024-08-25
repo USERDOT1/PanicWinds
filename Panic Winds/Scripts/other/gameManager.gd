@@ -96,56 +96,59 @@ func createBlock(playerid, placementType, lolposition, placementRotation, player
 	instance.spawnName = randID
 	instance.listCoords = placementCoords
 	var buildingPlayer = null
-	for i in GlobalVars.PlayersNode.get_child_count():
-		if GlobalVars.PlayersNode.get_child(i).name == playerid:
-			buildingPlayer = GlobalVars.PlayersNode.get_child(i)
-	buildingPlayer.add_child(instance)
-	instance.playerOwner = buildingPlayer
-	if instance.playerOwner == GlobalVars.currentPlayer:
-		if placementType == 0:
-			GlobalVars.buildingBlocks.append(Vector2(round(lolposition.x/640),round(lolposition.y/640)))
-		GlobalVars.placedBlocks.append(Vector2(round(lolposition.x/640),round(lolposition.y/640)))
-	GlobalVars.shipWeight += instance.blockWeight
-	GlobalVars.currentAudioPlayerShip.stream = load("res://Assets/Sound/SoundEffects/coins.wav")
-	GlobalVars.currentAudioPlayerShip.play()
+	if GlobalVars.PlayersNode != null:
+		for i in GlobalVars.PlayersNode.get_child_count():
+			if GlobalVars.PlayersNode.get_child(i).name == playerid:
+				buildingPlayer = GlobalVars.PlayersNode.get_child(i)
+		buildingPlayer.add_child(instance)
+		instance.playerOwner = buildingPlayer
+		if instance.playerOwner == GlobalVars.currentPlayer:
+			if placementType == 0:
+				GlobalVars.buildingBlocks.append(Vector2(round(lolposition.x/640),round(lolposition.y/640)))
+			GlobalVars.placedBlocks.append(Vector2(round(lolposition.x/640),round(lolposition.y/640)))
+		GlobalVars.shipWeight += instance.blockWeight
+		GlobalVars.currentAudioPlayerShip.stream = load("res://Assets/Sound/SoundEffects/coins.wav")
+		GlobalVars.currentAudioPlayerShip.play()
 
 @rpc("any_peer","call_local", "reliable")
 func destroyObject(owner,blockid, playerid, listCoords, isBuildingBlock, weight):
 	var playerOwner = null
-	for i in GlobalVars.PlayersNode.get_child_count():
-		#for every player
-		for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
-			playerOwner = GlobalVars.PlayersNode.get_child(i)
-			if playerOwner.get_child(j).name == blockid:
-				#if it's id is equal to the destruction id
-				#destroy it
-				playerOwner.get_child(j).queue_free()
-				GlobalVars.placedBlocks.erase(listCoords)
-				if isBuildingBlock:
-					GlobalVars.buildingBlocks.erase(listCoords)
-				if playerid == GlobalVars.currentPlayer.name:
-					GlobalVars.shipWeight -= weight
+	if GlobalVars.PlayersNode != null:
+		for i in GlobalVars.PlayersNode.get_child_count():
+			#for every player
+			for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
+				playerOwner = GlobalVars.PlayersNode.get_child(i)
+				if playerOwner.get_child(j).name == blockid:
+					#if it's id is equal to the destruction id
+					#destroy it
+					playerOwner.get_child(j).queue_free()
+					GlobalVars.placedBlocks.erase(listCoords)
+					if isBuildingBlock:
+						GlobalVars.buildingBlocks.erase(listCoords)
+					if playerid == GlobalVars.currentPlayer.name:
+						GlobalVars.shipWeight -= weight
 
 @rpc("any_peer","call_local", "reliable")
 func coreDestroy(playerID, coreName):
 	var playerOwner = null
-	for i in GlobalVars.PlayersNode.get_child_count():
-		#for every player
-		if GlobalVars.PlayersNode.get_child(i).name == playerID:
-			playerOwner = GlobalVars.PlayersNode.get_child(i)
-			for j in playerOwner.get_child_count():
-				if playerOwner.get_child(j).name == coreName:
-					#if it's id is equal to the destruction id
-					#destroy it
-					playerOwner.get_child(j).visible = false
-					for g in playerOwner.get_child(j).get_child_count():
-						if playerOwner.get_child(j).get_child(g).name == "CoreCollision":
-							playerOwner.get_child(j).get_child(g).queue_free()
-					GlobalVars.placedBlocks.erase(Vector2(0,0))
-					GlobalVars.buildingBlocks.erase(Vector2(0,0))
-				else:
-					if playerOwner.get_child(j).name != "MultiplayerSynchronizer" && playerOwner.get_child(j).name != "ShipArea" && playerOwner.get_child(j).name != "AudioListener2D" && playerOwner.get_child(j).name != "AudioStreamPlayer2D" && playerOwner.get_child(j).name != "Music" && playerOwner.get_child(j).name != "Barrier" && playerOwner.get_child(j).name != "currentCamera" && playerOwner.get_child(j).name != "nameLabel":
-						playerOwner.get_child(j).queue_free()
+	if GlobalVars.PlayersNode != null:
+		for i in GlobalVars.PlayersNode.get_child_count():
+			#for every player
+			if GlobalVars.PlayersNode.get_child(i).name == playerID:
+				playerOwner = GlobalVars.PlayersNode.get_child(i)
+				for j in playerOwner.get_child_count():
+					if playerOwner.get_child(j).name == coreName:
+						#if it's id is equal to the destruction id
+						#destroy it
+						playerOwner.get_child(j).visible = false
+						for g in playerOwner.get_child(j).get_child_count():
+							if playerOwner.get_child(j).get_child(g).name == "CoreCollision":
+								playerOwner.get_child(j).get_child(g).queue_free()
+						GlobalVars.placedBlocks.erase(Vector2(0,0))
+						GlobalVars.buildingBlocks.erase(Vector2(0,0))
+					else:
+						if playerOwner.get_child(j).name != "MultiplayerSynchronizer" && playerOwner.get_child(j).name != "ShipArea" && playerOwner.get_child(j).name != "AudioListener2D" && playerOwner.get_child(j).name != "AudioStreamPlayer2D" && playerOwner.get_child(j).name != "Music" && playerOwner.get_child(j).name != "Barrier" && playerOwner.get_child(j).name != "currentCamera" && playerOwner.get_child(j).name != "nameLabel":
+							playerOwner.get_child(j).queue_free()
 @rpc("any_peer","call_local")
 func spawnProjectile(projectilePath, playerRotation, selfRotation, globalPosition, xVelocity, yVelocity, playerID, playerPower, penetration):
 	print("spawningProjectile")
@@ -156,7 +159,7 @@ func spawnProjectile(projectilePath, playerRotation, selfRotation, globalPositio
 	instance.spawnPosition = globalPosition
 	instance.spawnRotation = playerRotation
 	instance.zIndex = -10
-	instance.shipVelocity = Vector2(xVelocity* 1/GlobalVars.shipWeight * 0.5,yVelocity* 1/GlobalVars.shipWeight * 0.5)
+	instance.shipVelocity = Vector2(xVelocity * 1/GlobalVars.shipWeight * 50 * GlobalVars.shipSpeedMultiplyer,yVelocity * 1/GlobalVars.shipWeight * 50 * GlobalVars.shipSpeedMultiplyer)
 	instance.penetration = penetration
 	var firingPlayer
 	for i in GlobalVars.PlayersNode.get_child_count():
@@ -172,47 +175,51 @@ func spawnProjectile(projectilePath, playerRotation, selfRotation, globalPositio
 @rpc("any_peer","call_local", "reliable")
 func barrierSpawn(playerid):
 	print("SPAWN BARRIER")
-	for i in GlobalVars.PlayersNode.get_child_count():
-		#for every player
-		if GlobalVars.PlayersNode.get_child(i).name == playerid:
-			for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
-				if GlobalVars.PlayersNode.get_child(i).get_child(j).name == "Barrier":
-					for b in GlobalVars.PlayersNode.get_child(i).get_child(j).get_child_count():
-						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D":
-							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = false
-						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D2":
-							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = false
-						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "AnimatedSprite2D":
-							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).visible = true
+	if GlobalVars.PlayersNode != null:
+		for i in GlobalVars.PlayersNode.get_child_count():
+			#for every player
+			if GlobalVars.PlayersNode.get_child(i).name == playerid:
+				for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
+					if GlobalVars.PlayersNode.get_child(i).get_child(j).name == "Barrier":
+						for b in GlobalVars.PlayersNode.get_child(i).get_child(j).get_child_count():
+							if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D":
+								GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = false
+							if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D2":
+								GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = false
+							if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "AnimatedSprite2D":
+								GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).visible = true
 
 
 @rpc("any_peer","call_local", "reliable")
 func barrierDespawn(playerid):
 	print("SPAWN BARRIER")
-	for i in GlobalVars.PlayersNode.get_child_count():
-		#for every player
-		if GlobalVars.PlayersNode.get_child(i).name == playerid:
-			for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
-				if GlobalVars.PlayersNode.get_child(i).get_child(j).name == "Barrier":
-					for b in GlobalVars.PlayersNode.get_child(i).get_child(j).get_child_count():
-						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D":
-							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = true
-						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D2":
-							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = true
-						if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "AnimatedSprite2D":
-							GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).visible = false
+	if GlobalVars.PlayersNode != null:
+		for i in GlobalVars.PlayersNode.get_child_count():
+			#for every player
+			if GlobalVars.PlayersNode.get_child(i).name == playerid:
+				for j in GlobalVars.PlayersNode.get_child(i).get_child_count():
+					if GlobalVars.PlayersNode.get_child(i).get_child(j).name == "Barrier":
+						for b in GlobalVars.PlayersNode.get_child(i).get_child(j).get_child_count():
+							if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D":
+								GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = true
+							if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "CollisionPolygon2D2":
+								GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).disabled = true
+							if GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).name == "AnimatedSprite2D":
+								GlobalVars.PlayersNode.get_child(i).get_child(j).get_child(b).visible = false
 @rpc("any_peer","call_local","reliable")
 func cloak(playerCloakID):
-	for i in GlobalVars.PlayersNode.get_child_count():
-		#for every player
-		if GlobalVars.PlayersNode.get_child(i).name == playerCloakID:
-			GlobalVars.PlayersNode.get_child(i).cloaked = true
+	if GlobalVars.PlayersNode != null:
+		for i in GlobalVars.PlayersNode.get_child_count():
+			#for every player
+			if GlobalVars.PlayersNode.get_child(i).name == playerCloakID:
+				GlobalVars.PlayersNode.get_child(i).cloaked = true
 
 
 	
 @rpc("any_peer","call_local","reliable")
 func unCloak(playerCloakID):
-	for i in GlobalVars.PlayersNode.get_child_count():
-		#for every player
-		if GlobalVars.PlayersNode.get_child(i).name == playerCloakID:
-			GlobalVars.PlayersNode.get_child(i).cloaked = false
+	if GlobalVars.PlayersNode != null:
+		for i in GlobalVars.PlayersNode.get_child_count():
+			#for every player
+			if GlobalVars.PlayersNode.get_child(i).name == playerCloakID:
+				GlobalVars.PlayersNode.get_child(i).cloaked = false

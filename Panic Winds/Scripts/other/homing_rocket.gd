@@ -25,14 +25,14 @@ func _physics_process(delta):
 		timer += delta
 	if Speed < 20000:
 		Speed += 80
-	global_position.x += shipVelocity.x
-	global_position.y -= shipVelocity.y
+	global_position.x += shipVelocity.x * delta
+	global_position.y -= shipVelocity.y * delta
 	velocity = Vector2(0,-Speed).rotated(global_rotation)
 	if Speed < 10000 && Speed > 5000:
 		var v = playerOwner.globalMousePositionC - global_position
 		var angle = v.angle()
 		var r = global_rotation - deg_to_rad(90)
-		global_rotation = lerp_angle(r,angle,0.08)+deg_to_rad(90)
+		global_rotation = lerp_angle(r,angle,0.04)+deg_to_rad(90)
 	move_and_slide()
 
 

@@ -32,14 +32,14 @@ func _process(delta):
 	if(Input.is_action_pressed(GlobalVars.oneBind) && InputBind == "InputOne" || Input.is_action_pressed(GlobalVars.twoBind) && InputBind == "InputTwo"||Input.is_action_pressed(GlobalVars.threeBind) && InputBind == "InputThree"||Input.is_action_pressed(GlobalVars.fourBind) && InputBind == "InputFour"||Input.is_action_pressed(GlobalVars.fiveBind) && InputBind == "InputFive"||Input.is_action_pressed(GlobalVars.sixBind) && InputBind == "InputSix"||Input.is_action_pressed(GlobalVars.sevenBind) && InputBind == "InputSeven"||Input.is_action_pressed(GlobalVars.eightBind) && InputBind == "InputEight"||Input.is_action_pressed(GlobalVars.nineBind) && InputBind == "InputNine"):
 		if !looping:
 			$AudioStreamPlayer2D.play()
-			looping = true
+			looping = false
 	else:
 		looping = false
 		$AudioStreamPlayer2D.stop()
 	if blockHealth <= 0:
 		GameManager.destroyObject.rpc(playerOwner, name, playerOwner.name, listCoords, false, weight)
 		GlobalVars.placedBlocks.erase(listCoords)
-	if GlobalVars.gamePaused == false && GlobalVars.buildingEnabled:
+	if GlobalVars.gamePaused == false && GlobalVars.buildingEnabled == false:
 		if Input.is_action_pressed(GlobalVars.oneBind) && InputBind == "InputOne":
 			action(delta)
 			pass

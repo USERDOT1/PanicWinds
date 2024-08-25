@@ -25,8 +25,8 @@ func _physics_process(delta):
 		queue_free()
 	else:
 		timer += delta
-	global_position.x += shipVelocity.x
-	global_position.y -= shipVelocity.y
+	global_position.x += shipVelocity.x * delta
+	global_position.y -= shipVelocity.y * delta
 	velocity = Vector2(0,-Speed).rotated(direction)
 	move_and_slide()
 

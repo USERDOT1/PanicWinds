@@ -23,6 +23,8 @@ func _ready():
 	global_rotation = direction
 	z_index = 100#zIndex
 func _physics_process(delta):
+	global_position.x += shipVelocity.x * delta
+	global_position.y -= shipVelocity.y * delta
 	if timer > 100:
 		queue_free()
 	else:

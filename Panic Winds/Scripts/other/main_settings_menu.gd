@@ -1,25 +1,10 @@
 extends Popup
 var gamePausedHere = false
 
-# Video Settings
-@onready var display_options = $SettingTabs/Video/MarginContainer/VideoSettings/DisplayOptions
-@onready var vsync_btn = $SettingTabs/Video/MarginContainer/VideoSettings/VsyncBtn
-@onready var display_fps_btn = $SettingTabs/Video/MarginContainer/VideoSettings/DisplayFpsBtn
-@onready var max_fps_val = $SettingTabs/Video/MarginContainer/VideoSettings/MaxFpsOption/MaxFpsVal
-@onready var max_fps_slider = $SettingTabs/Video/MarginContainer/VideoSettings/MaxFpsOption/MaxFpsSlider
-@onready var bloom_btn = $SettingTabs/Video/MarginContainer/VideoSettings/BloomBtn
-@onready var brightness_slider = $SettingTabs/Video/MarginContainer/VideoSettings/BrightnessSlider
-
 # Audio Settings
 @onready var master_slider = $SettingTabs/Audio/MarginContainer2/AudioSettings/MasterSlider
 @onready var music_slider = $SettingTabs/Audio/MarginContainer2/AudioSettings/MusicSlider
 @onready var sfx_slider = $SettingTabs/Audio/MarginContainer2/AudioSettings/SfxSlider
-
-# Gameplay Settings
-@onready var fov_amount = $SettingTabs/GamePlay/MarginContainer3/GameplaySettings/FovOption/FovAmount
-@onready var fov_slider = $SettingTabs/GamePlay/MarginContainer3/GameplaySettings/FovOption/FovSlider
-@onready var mouse_sens_amount = $SettingTabs/GamePlay/MarginContainer3/GameplaySettings/MouseSensOption/MouseSensAmount
-@onready var mouse_slider = $SettingTabs/GamePlay/MarginContainer3/GameplaySettings/MouseSensOption/MouseSlider
 
 
 func _ready():

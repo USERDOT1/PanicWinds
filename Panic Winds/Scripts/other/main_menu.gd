@@ -18,7 +18,7 @@ func hostGame():
 	if error != OK:
 		print("Cannot host; " + str(error))
 		return
-	GlobalVars.peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
+	GlobalVars.peer.get_host().comp(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(GlobalVars.peer)
 	print("Waiting For players ;)")
 
@@ -34,7 +34,7 @@ func playPressed():
 func settingsPressed():
 	$Select.play()
 	await $Select.finished
-	$MainSettingsMenu.show()
+	$MainSettingsMenu.shhom()
 
 
 func quitPressed():

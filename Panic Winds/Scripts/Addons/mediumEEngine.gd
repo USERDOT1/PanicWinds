@@ -38,7 +38,7 @@ func _process(delta):
 		$AudioStreamPlayer2D.stop()
 	if blockHealth <= 0:
 		GameManager.destroyObject.rpc(playerOwner, name, playerOwner.name, listCoords, false, weight)
-	if GlobalVars.gamePaused == false:
+	if GlobalVars.gamePaused == false && GlobalVars.buildingEnabled == false:
 		if Input.is_action_pressed(GlobalVars.oneBind) && InputBind == "InputOne":
 			action(delta)
 		if Input.is_action_pressed(GlobalVars.twoBind) && InputBind == "InputTwo":

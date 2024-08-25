@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdaiis0yl0ijb"]
+[gd_scene load_steps=16 format=3 uid="uid://bdaiis0yl0ijb"]
 
 [ext_resource type="Script" path="res://Scripts/other/sceneManager.gd" id="1_b1tx3"]
 [ext_resource type="Texture2D" uid="uid://cm3s6mef8c108" path="res://Assets/Sprites/Other/StarBackground.png" id="1_ovhl3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bg31p22ipttem" path="res://Scenes/building_ui.tscn" id="5_7tru8"]
 [ext_resource type="PackedScene" uid="uid://dwa16k4mdxcu1" path="res://Scenes/station.tscn" id="7_ebvbr"]
 [ext_resource type="PackedScene" uid="uid://bvf04fyobc05b" path="res://Scenes/stationDetection.tscn" id="8_gv4ur"]
+[ext_resource type="Script" path="res://Scenes/Players.gd" id="8_jjl7w"]
 [ext_resource type="PackedScene" uid="uid://c5re6bm31jx4o" path="res://Scenes/ui.tscn" id="9_kbjhq"]
 [ext_resource type="PackedScene" uid="uid://4p3qvtn3symr" path="res://Scenes/purple_meteor.tscn" id="10_wsuv6"]
 [ext_resource type="PackedScene" uid="uid://cfkjka1sb6wlj" path="res://Scenes/upgrade_ui.tscn" id="11_c5xo5"]
@@ -52,6 +53,7 @@ position = Vector2(30000, 0)
 position = Vector2(-30000, 0)
 
 [node name="Players" type="Node2D" parent="."]
+script = ExtResource("8_jjl7w")
 
 [node name="UI" parent="." instance=ExtResource("9_kbjhq")]
 
