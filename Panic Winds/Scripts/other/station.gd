@@ -59,8 +59,8 @@ func _on_player_area_area_exited(area):
 
 
 func _on_buy_light_round_pressed():
-	if GlobalVars.creds >= 2*multiplyer:
-		GlobalVars.creds -= 2*multiplyer
+	if GlobalVars.creds >= 3*multiplyer:
+		GlobalVars.creds -= 3*multiplyer
 		GlobalVars.lightRounds += multiplyer
 	else:
 		GlobalVars.currentAudioPlayerShip.stream = load("res://Assets/Sound/SoundEffects/CantBuy.wav")
@@ -68,8 +68,8 @@ func _on_buy_light_round_pressed():
 
 
 func _on_buy_heavy_round_pressed():
-	if GlobalVars.creds >= 5*multiplyer:
-		GlobalVars.creds -= 5*multiplyer
+	if GlobalVars.creds >= 10*multiplyer:
+		GlobalVars.creds -= 10*multiplyer
 		GlobalVars.heavyRounds += multiplyer
 	else:
 		GlobalVars.currentAudioPlayerShip.stream = load("res://Assets/Sound/SoundEffects/CantBuy.wav")

@@ -148,9 +148,12 @@ shape = SubResource("RectangleShape2D_hjwrb")
 
 [node name="GunChamberOne" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5g673")
+bus = &"SFX"
 
 [node name="GunChamberTwo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5g673")
+bus = &"SFX"
 
 [node name="GunChamberThree" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5g673")
+bus = &"SFX"

@@ -60,6 +60,7 @@ func action(delta):
 		if playerOwner == GlobalVars.currentPlayer:
 			if GlobalVars.heavyRounds == 0:
 				if timer > countdown:
+					print()
 					$GunChamberOne.play()
 					timer = 0
 			else:

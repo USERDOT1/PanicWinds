@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://j0suqf6bbr16"]
+[gd_scene load_steps=17 format=3 uid="uid://j0suqf6bbr16"]
 
 [ext_resource type="Script" path="res://Scripts/other/gun_test.gd" id="1_ajsqj"]
 [ext_resource type="Texture2D" uid="uid://c6l740ddijrhx" path="res://Assets/Sprites/Addons/GunTest.png" id="2_ggmu3"]
 [ext_resource type="Script" path="res://Scripts/Addons/gunTestInputBindChanger.gd" id="3_gsei7"]
+[ext_resource type="AudioStream" uid="uid://h7tkbny3dstw" path="res://Assets/Sound/SoundEffects/blankRound.wav" id="4_to8q7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgcpq"]
 atlas = ExtResource("2_ggmu3")
@@ -138,3 +139,7 @@ script = ExtResource("3_gsei7")
 [node name="GunTestInteractCollider" type="CollisionShape2D" parent="GunTestInteractArea"]
 position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_hjwrb")
+
+[node name="GunChamberOne" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_to8q7")
+bus = &"SFX"
