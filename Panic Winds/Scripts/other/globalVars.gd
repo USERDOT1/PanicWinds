@@ -72,10 +72,15 @@ var currentShipModelMenu
 var drebBought = true
 var blickBought = false
 var titanBought = false
+var sickleBought = false
+var scytheBought = false
+
 
 var drebEquipped = true
 var blickEquipped = false
 var titanEquipped = false
+var sickleEquipped = false
+var scytheEquipped = false
 
 # upgrades (for future implementation)
 var upgradeCount

@@ -1,6 +1,7 @@
 extends Control
 var recordedValue
 func _process(delta):
+	self.global_position = GlobalVars.currentPlayer.global_position
 	GlobalVars.roundStart -= delta
 	if GlobalVars.roundStart > 0:
 		$Countdown.text = "Round starts in: " + str(roundf(GlobalVars.roundStart))
@@ -37,7 +38,6 @@ func _process(delta):
 	$Ammo.text = ("Light Rounds: "+str(GlobalVars.lightRounds)+"\nHeavy Rounds: "+str(GlobalVars.heavyRounds)+"\nMissiles: "+str(GlobalVars.missiles))
 	$Velocity.text = "Velocity: " + str(round((abs(GlobalVars.xVelocity)+abs(GlobalVars.yVelocity))/7))
 	$"Core Health".text = "Core Health: "+ str(round(GlobalVars.coreHealth))
-	self.global_position = GlobalVars.currentPlayer.global_position
 
 
 func _on_settings_pressed():
