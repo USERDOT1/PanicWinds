@@ -251,7 +251,7 @@ script = ExtResource("1_dq4ff")
 
 [node name="EngineSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tdnfl")
-animation = &"EngineBindFour"
+animation = &"Blank"
 autoplay = "EngineBindFour"
 
 [node name="EngineCollision" type="CollisionShape2D" parent="."]

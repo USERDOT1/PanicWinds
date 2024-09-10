@@ -9,16 +9,15 @@ var gamePausedHere = false
 
 
 func _ready():
-	if get_parent().get_parent() == GlobalVars.currentPlayer:
-		GlobalVars.currentPauseMenu = self
+	GlobalVars.currentPauseMenu = self
 	$SettingTabs/Audio/MarginContainer2/AudioSettings/MasterSlider.value = GlobalVars.masterVolumeSave
-	AudioServer.set_bus_volume_db(0, GlobalVars.masterVolumeSave + 10)
+	AudioServer.set_bus_volume_db(0, GlobalVars.masterVolumeSave + 30)
 	$SettingTabs/Audio/MarginContainer2/AudioSettings/MusicSlider.value = GlobalVars.musicVolumeSave
-	AudioServer.set_bus_volume_db(1, GlobalVars.musicVolumeSave + 3)
+	AudioServer.set_bus_volume_db(2, GlobalVars.musicVolumeSave - 10)
 	$SettingTabs/Audio/MarginContainer2/AudioSettings/SfxSlider.value = GlobalVars.sfxVolumeSaved
-	AudioServer.set_bus_volume_db(3, GlobalVars.sfxVolumeSaved + 10)
+	AudioServer.set_bus_volume_db(1, GlobalVars.sfxVolumeSaved + 10)
 	$SettingTabs/Audio/MarginContainer2/AudioSettings/ShipVoiceSlider.value = GlobalVars.shipVoiceVolumeSaved
-	AudioServer.set_bus_volume_db(2, GlobalVars.shipVoiceVolumeSaved + 10)
+	AudioServer.set_bus_volume_db(3, GlobalVars.shipVoiceVolumeSaved + 10)
 	
 	$SettingTabs/Input/MarginContainer/VideoSettings/InputOneOptions.selected = GlobalVars.defaultOneBind
 	$SettingTabs/Input/MarginContainer/VideoSettings/InputTwoOptions.selected = GlobalVars.defaultTwoBind
@@ -40,7 +39,6 @@ func _process(delta):
 		GlobalVars.InputSeven = $SettingTabs/Input/MarginContainer/VideoSettings/InputSevenOptions.get_selected_id()
 		GlobalVars.InputEight = $SettingTabs/Input/MarginContainer/VideoSettings/InputEightOptions.get_selected_id()
 		GlobalVars.InputNine = $SettingTabs/Input/MarginContainer/VideoSettings/InputNineOptions.get_selected_id()
-		print(GlobalVars.InputSix)
 		if GlobalVars.InputOne == 0:
 			GlobalVars.oneBind = "OnePressed"
 		elif GlobalVars.InputOne == 1:
@@ -399,21 +397,17 @@ func _process(delta):
 
 func _on_music_slider_value_changed(value):
 	#Sfx 
-	if get_parent() == GlobalVars.currentCamera:
-		AudioServer.set_bus_volume_db(2, value + 3)
+	AudioServer.set_bus_volume_db(2, value - 10)
 
 
 func _on_sfx_slider_value_changed(value):
-	if get_parent() == GlobalVars.currentCamera:
-		AudioServer.set_bus_volume_db(1, value + 10)
+	AudioServer.set_bus_volume_db(1, value + 10)
 
 
 func _on_ship_voice_slider_value_changed(value):
-	if get_parent() == GlobalVars.currentCamera:
-		AudioServer.set_bus_volume_db(3, value + 10)
+	AudioServer.set_bus_volume_db(3, value + 10)
 
 
 func _on_master_slider_value_changed(value):
 	# Master
-	if get_parent() == GlobalVars.currentCamera:
-		AudioServer.set_bus_volume_db(0, value + 10)
+	AudioServer.set_bus_volume_db(0, value + 10)

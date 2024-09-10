@@ -3,6 +3,7 @@ var done = false
 
 func _process(_delta): #add flames
 	if $"..".playerOwner == GlobalVars.currentPlayer:
+		
 		done = false
 		if $"..".InputBind == "InputOne" && !done:
 			if Input.is_action_pressed("OnePressed"):
@@ -89,35 +90,41 @@ func _process(_delta): #add flames
 	else:
 		$"../EngineSprite".animation = "Blank"
 func _input_event(_veiwport, event, _shape_idx):#change bind if clicked on
-	if event.is_action_pressed("LeftClick"):
-		if($"..".InputBind == "InputOne"):
-			$"..".InputBind = "InputTwo"
-			$"../EngineSprite".animation = "EngineBindTwo"
-		elif($"..".InputBind == "InputTwo"):
-			$"..".InputBind = "InputThree"
-			$"../EngineSprite".animation = "EngineBindThree"
-		elif($"..".InputBind == "InputThree"):
-			$"..".InputBind = "InputFour"
-			$"../EngineSprite".animation = "EngineBindFour"
-		elif($"..".InputBind == "InputFour"):
-			$"..".InputBind = "InputFive"
-			$"../EngineSprite".animation = "EngineBindFive"
-		elif($"..".InputBind == "InputFive"):
-			$"..".InputBind = "InputSix"
-			$"../EngineSprite".animation = "EngineBindSix"
-		elif($"..".InputBind == "InputSix"):
-			$"..".InputBind = "InputSeven"
-			$"../EngineSprite".animation = "EngineBindSeven"
-		elif($"..".InputBind == "InputSeven"):
-			$"..".InputBind = "InputEight"
-			$"../EngineSprite".animation = "EngineBindEight"
-		elif($"..".InputBind == "InputEight"):
-			$"..".InputBind = "InputNine"
-			$"../EngineSprite".animation = "EngineBindNine"
-		elif($"..".InputBind == "InputNine"):
-			$"..".InputBind = "InputOne"
-			$"../EngineSprite".animation = "EngineBindOne"
-			
+	if GlobalVars.erasingBlock:
+		$"..".blockHealth = -10
+	else:
+		if event.is_action_pressed("LeftClick"):
+			if GlobalVars.erasingBlock:
+				$"..".blockHealth = -10
+			else:
+				if($"..".InputBind == "InputOne"):
+					$"..".InputBind = "InputTwo"
+					$"../EngineSprite".animation = "EngineBindTwo"
+				elif($"..".InputBind == "InputTwo"):
+					$"..".InputBind = "InputThree"
+					$"../EngineSprite".animation = "EngineBindThree"
+				elif($"..".InputBind == "InputThree"):
+					$"..".InputBind = "InputFour"
+					$"../EngineSprite".animation = "EngineBindFour"
+				elif($"..".InputBind == "InputFour"):
+					$"..".InputBind = "InputFive"
+					$"../EngineSprite".animation = "EngineBindFive"
+				elif($"..".InputBind == "InputFive"):
+					$"..".InputBind = "InputSix"
+					$"../EngineSprite".animation = "EngineBindSix"
+				elif($"..".InputBind == "InputSix"):
+					$"..".InputBind = "InputSeven"
+					$"../EngineSprite".animation = "EngineBindSeven"
+				elif($"..".InputBind == "InputSeven"):
+					$"..".InputBind = "InputEight"
+					$"../EngineSprite".animation = "EngineBindEight"
+				elif($"..".InputBind == "InputEight"):
+					$"..".InputBind = "InputNine"
+					$"../EngineSprite".animation = "EngineBindNine"
+				elif($"..".InputBind == "InputNine"):
+					$"..".InputBind = "InputOne"
+					$"../EngineSprite".animation = "EngineBindOne"
+				
 			
 	if event.is_action_pressed("RightClick"):
 		if($"..".InputBind == "InputOne"):

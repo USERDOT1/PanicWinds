@@ -54,7 +54,7 @@ layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("3_yhkvx")
 theme_override_font_sizes/font_size = 150
-text = "Panic Winds"
+text = "Solar Winds"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]

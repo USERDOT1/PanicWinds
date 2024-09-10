@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8p85dpab4ias"]
+[gd_scene load_steps=9 format=3 uid="uid://c8p85dpab4ias"]
 
 [ext_resource type="Script" path="res://Scripts/other/optical_camera.gd" id="1_iigwn"]
 [ext_resource type="Texture2D" uid="uid://cgxsnjw1t3d4s" path="res://Assets/Sprites/Addons/opticalCamera.png" id="2_bhfhd"]
+[ext_resource type="Script" path="res://Scripts/other/sheildGenerator.gd" id="3_mv4xa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjii8"]
 atlas = ExtResource("2_bhfhd")
@@ -28,6 +29,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_weal7"]
 size = Vector2(640, 640)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2nk"]
+size = Vector2(640, 420)
+
 [node name="OpticalCamera" type="StaticBody2D"]
 script = ExtResource("1_iigwn")
 
@@ -38,3 +42,10 @@ autoplay = "opticalCamera"
 
 [node name="TierOneBlockCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_weal7")
+
+[node name="EngineInteractArea" type="Area2D" parent="."]
+script = ExtResource("3_mv4xa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EngineInteractArea"]
+position = Vector2(0, 110)
+shape = SubResource("RectangleShape2D_0o2nk")

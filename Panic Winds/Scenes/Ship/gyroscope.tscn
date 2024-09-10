@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ierqh06jasc6"]
+[gd_scene load_steps=10 format=3 uid="uid://ierqh06jasc6"]
 
 [ext_resource type="Script" path="res://Scripts/other/gyroscope.gd" id="1_f8sjc"]
 [ext_resource type="Texture2D" uid="uid://vmc2ay2eslxn" path="res://Assets/Sprites/Addons/Gyroscope.png" id="2_rvidl"]
+[ext_resource type="Script" path="res://Scripts/other/sheildGenerator.gd" id="3_68v5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef777"]
 atlas = ExtResource("2_rvidl")
@@ -35,6 +36,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_weal7"]
 size = Vector2(640, 640)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siqqk"]
+size = Vector2(640, 420)
+
 [node name="Gyroscope" type="StaticBody2D"]
 script = ExtResource("1_f8sjc")
 
@@ -46,3 +50,10 @@ frame_progress = 0.730394
 
 [node name="TierOneBlockCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_weal7")
+
+[node name="EngineInteractArea" type="Area2D" parent="."]
+script = ExtResource("3_68v5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EngineInteractArea"]
+position = Vector2(0, 110)
+shape = SubResource("RectangleShape2D_siqqk")

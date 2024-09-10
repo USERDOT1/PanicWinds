@@ -21,6 +21,10 @@ func _process(delta):
 		$"Station UI".visible = true
 		
 	if GlobalVars.inStation:
+		if GlobalVars.inError == true && GlobalVars.errorType == 2:
+			GlobalVars.leakingFuel = false
+			GlobalVars.inError = false
+		GlobalVars.leakError = 0
 		if GlobalVars.Fuel < GlobalVars.maxFuel:
 			if GlobalVars.Fuel + delta < GlobalVars.maxFuel:
 				GlobalVars.Fuel += delta

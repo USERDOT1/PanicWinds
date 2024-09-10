@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxs0s5cwa2hd1"
+path="res://.godot/imported/Core fuel storage tank has a puncture, please return to station to make necessary repairs in the next 30 seconds or fuel will begin to leak.wav-76311fe28ba339ee9808f65d502d2dbd.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/ShipVoice/Core fuel storage tank has a puncture, please return to station to make necessary repairs in the next 30 seconds or fuel will begin to leak.wav"
+dest_files=["res://.godot/imported/Core fuel storage tank has a puncture, please return to station to make necessary repairs in the next 30 seconds or fuel will begin to leak.wav-76311fe28ba339ee9808f65d502d2dbd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

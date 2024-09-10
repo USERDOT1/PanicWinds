@@ -173,7 +173,7 @@ layout_mode = 2
 
 [node name="BuyOrEquip" type="Button" parent="VideoSettings"]
 layout_mode = 2
-text = "BUy/Option"
+text = "Buy/Option"
 
 [node name="BuySfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_jvuys")

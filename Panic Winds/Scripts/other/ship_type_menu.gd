@@ -5,7 +5,7 @@ func _ready():
 		GlobalVars.currentShipModelMenu = self
 func _process(delta):
 	if $VideoSettings/ShipModelOptions.get_selected_id() == 0:
-			$VideoSettings/Stats.text = "- Fuel Storage: 60\n- Energy Storage: 60\n- Oxygen Storage: 60\n- Damage Multiplyer: 1.0\n- Speed Multiplyer: 1.0\n- Ship Armor: 2"
+			$VideoSettings/Stats.text = "- Fuel Storage: 60\n- Energy Storage: 60\n- Oxygen Storage: 60\n- Damage Multiplyer: 1.0\n- Speed Multiplyer: 1.0\n- Ship Armor: 2\n- Reliability: 3"
 			$VideoSettings/Description.text = "The Default ship model with low armor, decent storage, and normal speed"
 			if GlobalVars.drebBought:
 				if GlobalVars.drebEquipped == false:
@@ -16,8 +16,8 @@ func _process(delta):
 				$VideoSettings/BuyOrEquip.text = "Buy (10)"
 				
 	if $VideoSettings/ShipModelOptions.get_selected_id() == 1:
-		$VideoSettings/Stats.text = "- Fuel Storage: 40\n- Energy Storage: 40\n- Oxygen Storage: 40\n- Damage Multiplyer: 1.0\n- Speed Multiplyer: 1.5\n- Ship Armor: 0"
-		$VideoSettings/Description.text = "An agile and quick ship model with no armor with low storage"
+		$VideoSettings/Stats.text = "- Fuel Storage: 40\n- Energy Storage: 40\n- Oxygen Storage: 40\n- Damage Multiplyer: 1.0\n- Speed Multiplyer: 1.7\n- Ship Armor: 0\n- Reliability: 1"
+		$VideoSettings/Description.text = "An incredibly agile and quick ship model with no armor, low storage, and reliability issues"
 		if GlobalVars.blickBought:
 			if GlobalVars.blickEquipped == false:
 				$VideoSettings/BuyOrEquip.text = "Equip"
@@ -27,7 +27,7 @@ func _process(delta):
 			$VideoSettings/BuyOrEquip.text = "Buy (75)"
 			
 	if $VideoSettings/ShipModelOptions.get_selected_id() == 2:
-		$VideoSettings/Stats.text = "- Fuel Storage: 86\n- Energy Storage: 70\n- Oxygen Storage: 80\n- Damage Multiplyer: 1.0\n- Speed Multiplyer: 0.75\n- Ship Armor: 8"
+		$VideoSettings/Stats.text = "- Fuel Storage: 86\n- Energy Storage: 70\n- Oxygen Storage: 80\n- Damage Multiplyer: 1.0\n- Speed Multiplyer: 0.75\n- Ship Armor: 8\n- Reliability: 2"
 		$VideoSettings/Description.text = "A slow, bulky and heavily armored ship with high storage"
 		if GlobalVars.titanBought:
 			if GlobalVars.titanEquipped == false:
@@ -37,7 +37,7 @@ func _process(delta):
 		else:
 			$VideoSettings/BuyOrEquip.text = "Buy (85)"
 	if $VideoSettings/ShipModelOptions.get_selected_id() == 3:
-		$VideoSettings/Stats.text = "- Fuel Storage: 70\n- Energy Storage: 70\n- Oxygen Storage: 70\n- Damage Multiplyer: 1.5\n- Speed Multiplyer: 1.5\n- Ship Armor: 4"
+		$VideoSettings/Stats.text = "- Fuel Storage: 70\n- Energy Storage: 70\n- Oxygen Storage: 70\n- Damage Multiplyer: 1.5\n- Speed Multiplyer: 1.5\n- Ship Armor: 4\n- Reliability: "
 		$VideoSettings/Description.text = "A highly refined elite ship"
 		if GlobalVars.sickleBought:
 			if GlobalVars.sickleEquipped == false:
@@ -47,7 +47,7 @@ func _process(delta):
 		else:
 			$VideoSettings/BuyOrEquip.text = "Buy (150)"
 	if $VideoSettings/ShipModelOptions.get_selected_id() == 4:
-		$VideoSettings/Stats.text = "- Fuel Storage: 80\n- Energy Storage: 80\n- Oxygen Storage: 80\n- Damage Multiplyer: 2\n- Speed Multiplyer: 2\n- Ship Armor: 6"
+		$VideoSettings/Stats.text = "- Fuel Storage: 80\n- Energy Storage: 80\n- Oxygen Storage: 80\n- Damage Multiplyer: 2\n- Speed Multiplyer: 2\n- Ship Armor: 6\n- Reliability: "
 		$VideoSettings/Description.text = "The most elite streamlined ship in the sector, those valuing their lives should steer clear"
 		if GlobalVars.scytheBought:
 			if GlobalVars.scytheEquipped == false:
@@ -64,8 +64,9 @@ func _process(delta):
 		GlobalVars.maxEnergy = 60
 		GlobalVars.maxOxygen = 60
 		GlobalVars.shipArmor = 2
-		GlobalVars.shipSpeedMultiplyer = 1
+		GlobalVars.shipSpeedMultiplyer = 1 - GlobalVars.shipSpeedError
 		GlobalVars.shipDamageMultiplyer = 1
+		GlobalVars.reliablility = 3
 		
 	if GlobalVars.blickEquipped:
 		#Blick
@@ -73,8 +74,9 @@ func _process(delta):
 		GlobalVars.maxEnergy = 40
 		GlobalVars.maxOxygen = 40
 		GlobalVars.shipArmor = 0
-		GlobalVars.shipSpeedMultiplyer = 1.4
+		GlobalVars.shipSpeedMultiplyer = 1.4 - GlobalVars.shipSpeedError
 		GlobalVars.shipDamageMultiplyer = 1
+		GlobalVars.reliablility = 1
 		
 	if GlobalVars.titanEquipped:
 		#Titan
@@ -82,8 +84,9 @@ func _process(delta):
 		GlobalVars.maxEnergy = 70
 		GlobalVars.maxOxygen = 80
 		GlobalVars.shipArmor = 8 
-		GlobalVars.shipSpeedMultiplyer = 0.75
+		GlobalVars.shipSpeedMultiplyer = 0.75 - GlobalVars.shipSpeedError
 		GlobalVars.shipDamageMultiplyer = 1
+		GlobalVars.reliablility = 2
 	
 	if GlobalVars.sickleEquipped:
 		#Sickle
@@ -91,8 +94,9 @@ func _process(delta):
 		GlobalVars.maxEnergy = 70
 		GlobalVars.maxOxygen = 70
 		GlobalVars.shipArmor = 4
-		GlobalVars.shipSpeedMultiplyer = 1.5 
+		GlobalVars.shipSpeedMultiplyer = 1.5 - GlobalVars.shipSpeedError
 		GlobalVars.shipDamageMultiplyer = 1.5
+		GlobalVars.reliablility = 4
 		
 	if GlobalVars.scytheEquipped:
 		#Scythe
@@ -100,8 +104,9 @@ func _process(delta):
 		GlobalVars.maxEnergy = 80
 		GlobalVars.maxOxygen = 80
 		GlobalVars.shipArmor = 6
-		GlobalVars.shipSpeedMultiplyer = 2
+		GlobalVars.shipSpeedMultiplyer = 2 - GlobalVars.shipSpeedError
 		GlobalVars.shipDamageMultiplyer = 2
+		GlobalVars.reliablility = 5
 
 func _on_buy_or_equip_pressed():
 	if $VideoSettings/ShipModelOptions.get_selected_id() == 0:

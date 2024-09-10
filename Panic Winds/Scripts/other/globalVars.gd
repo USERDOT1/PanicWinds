@@ -27,6 +27,7 @@ var xPlacement = 0
 var yPlacement = 0
 var placedBlocks = [Vector2(0,0)]
 var buildingBlocks = [Vector2(0,0)]
+var erasingBlock = false
 
 #Ammo
 var lightRounds: int = 0
@@ -51,6 +52,7 @@ var port = 8910 # subject to change in the future :|
 var xVelocity = 0
 var yVelocity = 0
 var currentPlayer
+var currentSfxPlayerShip
 var playerName = "192.168.86.82"
 var shipWeight = 5
 var PlayersNode
@@ -65,8 +67,11 @@ var radarRotation = 0
 var turnSpeed = 0.01
 var shipDamageMultiplyer:float = 1
 var shipSpeedMultiplyer:float = 1
+var shipSpeedError:float = 0
 var shipArmor
 var currentShipModelMenu
+var reliablility:int = 3
+var highestVelocity = 0
 
 # Ship Models
 var drebBought = true
@@ -119,8 +124,15 @@ var defaultSevenBind:int
 var defaultEightBind:int
 var defaultNineBind:int
 
+# Volune
 var masterVolumeSave
 var musicVolumeSave
 var shipVoiceVolumeSaved
 var sfxVolumeSaved
 var currentPauseMenu
+
+# Ship Errors
+var inError = false
+var errorType: int = 1 
+var leakError: float = 0
+var leakingFuel: bool = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bg31p22ipttem"]
+[gd_scene load_steps=55 format=3 uid="uid://bg31p22ipttem"]
 
 [ext_resource type="Script" path="res://Scripts/other/BuildingUiMultiplayer.gd" id="1_ugjvq"]
 [ext_resource type="Script" path="res://Scripts/other/ScrollContainer.gd" id="2_p2x1e"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://02wntghp1noa" path="res://Assets/Inventory/18.png" id="19_labo3"]
 [ext_resource type="Texture2D" uid="uid://4rj5uhvlkitd" path="res://Assets/Inventory/17.png" id="19_lnr65"]
 [ext_resource type="Texture2D" uid="uid://w5wg1sgffvku" path="res://Assets/Sprites/Addons/barrierGeneratorBlank.png" id="21_gf8td"]
+[ext_resource type="Texture2D" uid="uid://dibtncyyx1bcm" path="res://Assets/Sprites/Other/New Piskel-1.png.png" id="27_frvk8"]
+[ext_resource type="Script" path="res://Scenes/DeleteSprite.gd" id="28_6sxwf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbxlf"]
 atlas = ExtResource("9_l3wya")
@@ -304,7 +306,6 @@ font_names = PackedStringArray("Lucida Console")
 font_names = PackedStringArray("Lucida Console")
 
 [node name="BuildingUi" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -314,6 +315,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_ugjvq")
+
+[node name="DeleteSprite" type="Sprite2D" parent="."]
+z_index = 4096
+texture = ExtResource("27_frvk8")
+script = ExtResource("28_6sxwf")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(1000, 1000)
@@ -378,3 +384,14 @@ offset_bottom = 3706.0
 theme_override_fonts/font = SubResource("SystemFont_smn5k")
 theme_override_font_sizes/font_size = 300
 text = "price"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 6344.0
+offset_top = 4972.0
+offset_right = 8929.0
+offset_bottom = 5712.0
+theme_override_font_sizes/font_size = 400
+text = "Eject Node"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

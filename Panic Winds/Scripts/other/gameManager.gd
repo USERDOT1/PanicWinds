@@ -107,8 +107,8 @@ func createBlock(playerid, placementType, lolposition, placementRotation, player
 				GlobalVars.buildingBlocks.append(Vector2(round(lolposition.x/640),round(lolposition.y/640)))
 			GlobalVars.placedBlocks.append(Vector2(round(lolposition.x/640),round(lolposition.y/640)))
 		GlobalVars.shipWeight += instance.blockWeight
-		GlobalVars.currentAudioPlayerShip.stream = load("res://Assets/Sound/SoundEffects/coins.wav")
-		GlobalVars.currentAudioPlayerShip.play()
+		GlobalVars.currentSfxPlayerShip.stream = load("res://Assets/Sound/SoundEffects/coins.wav")
+		GlobalVars.currentSfxPlayerShip.play()
 
 @rpc("any_peer","call_local", "reliable")
 func destroyObject(owner,blockid, playerid, listCoords, isBuildingBlock, weight):

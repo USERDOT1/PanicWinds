@@ -31,7 +31,7 @@ func _process(delta):
 		$EngineSprite.modulate.a = 1
 	blockArmor = 9 + GlobalVars.shipArmor
 	if solarPanelOn:
-		GlobalVars.Energy += delta
+		GlobalVars.Energy += 0.3*delta
 	if blockHealth <= 0:
 		GameManager.destroyObject.rpc(playerOwner, name, playerOwner.name, listCoords, false, weight)
 	if GlobalVars.gamePaused == false:

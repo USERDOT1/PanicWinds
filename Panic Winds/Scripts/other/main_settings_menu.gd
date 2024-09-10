@@ -8,9 +8,9 @@ var gamePausedHere = false
 
 
 func _ready():
-	AudioServer.set_bus_volume_db(0, $SettingTabs/Audio/MarginContainer2/AudioSettings/MasterSlider.value+10)
+	AudioServer.set_bus_volume_db(0, $SettingTabs/Audio/MarginContainer2/AudioSettings/MasterSlider.value+30)
 	AudioServer.set_bus_volume_db(1, $SettingTabs/Audio/MarginContainer2/AudioSettings/SfxSlider.value+10)
-	AudioServer.set_bus_volume_db(2, $SettingTabs/Audio/MarginContainer2/AudioSettings/MusicSlider.value+3)
+	AudioServer.set_bus_volume_db(2, $SettingTabs/Audio/MarginContainer2/AudioSettings/MusicSlider.value-10)
 	AudioServer.set_bus_volume_db(3, $SettingTabs/Audio/MarginContainer2/AudioSettings/ShipVoiceSlider.value+10)
 	
 func _process(delta):

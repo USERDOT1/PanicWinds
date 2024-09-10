@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://324b7gsp30ju"
+path="res://.godot/imported/Ship aerodynamics compromised, in order to preserve ship speed keep cruising velocity under one hundred and fifty.wav-27f8ef02a6affe083eadf52565eb7e85.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/ShipVoice/Ship aerodynamics compromised, in order to preserve ship speed keep cruising velocity under one hundred and fifty.wav"
+dest_files=["res://.godot/imported/Ship aerodynamics compromised, in order to preserve ship speed keep cruising velocity under one hundred and fifty.wav-27f8ef02a6affe083eadf52565eb7e85.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
